@@ -1,5 +1,3 @@
-import { useForm } from 'react-hook-form';
-
 const roudedInput = 'bg-gray-600 outline-none w-full h-8 p-2 rounded-lg mt-2 mb-4';
 
 interface inputProps {
@@ -10,10 +8,9 @@ interface inputProps {
 }
 
 const Input = ({ inputID, placeHolder = '', inputType = 'text', inputStyle = 'roudedInput' }: inputProps) => {
-  const { register } = useForm();
   const InputStyles = inputStyle === 'roudedInput' ? roudedInput : '';
 
-  return <input {...register(inputID)} type={inputType} placeholder={placeHolder} className={InputStyles} />;
+  return <input type={inputType} placeholder={placeHolder} className={InputStyles} />;
 };
 
 export default Input;

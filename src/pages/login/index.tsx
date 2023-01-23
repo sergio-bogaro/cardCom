@@ -1,19 +1,35 @@
-import type { NextPage } from 'next';
+import { useFormik } from 'formik';
 import { useRouter } from 'next/router';
-import { useForm } from 'react-hook-form';
+import { useState } from 'react';
+
+import { ButtonOrLink } from '@ui/ButtonOrLink';
+import { Checkbox } from '@ui/CheckBox';
+import { Input } from '@ui/Input';
+
 import { login } from '../../services/auth';
 
-import Button from '../../components/Button';
-import { MouseEvent, useState } from 'react';
-
+import type { NextPage } from 'next';
 const Login: NextPage = () => {
   const router = useRouter();
   const [errorMessage, setErrorMessage] = useState('');
-  const {
-    register,
-    handleSubmit,
-    formState: { errors }
-  } = useForm();
+
+  const formik = useFormik({
+    initialValues: {
+      email: '',
+      password: ''
+    },
+    onSubmit: (data) => {
+      login(data)
+        .then((response) => {
+          const userData = JSON.stringify(response.data.usuario);
+          localStorage.setItem('userDataCAP', userData);
+          localStorage.setItem('accessTokenCAP', response.data.token);
+          router.push('/home');
+        })
+        .catch((error) => setErrorMessage(error.response.data.mensagem));
+    }
+  });
+
   const onSubmit = (data: any) =>
     login(data)
       .then((response) => {
@@ -26,38 +42,33 @@ const Login: NextPage = () => {
 
   return (
     <div>
-      <main className="bg-slate-900 h-screen flex justify-center">
-        <div className="m-auto flex-col w-128 bg-slate-800 rounded-xl">
-          <form onSubmit={handleSubmit(onSubmit)} className="px-8 text-slate-200">
-            <p className="text-slate-200 mt-12">Email</p>
-            <input {...register('email')} className="bg-gray-600 outline-none w-full h-8 p-2 rounded-lg mt-2 mb-4" />
+      <main className="flex h-screen justify-center bg-slate-900">
+        <div className="m-auto flex w-128 flex-col rounded-xl bg-slate-800 p-8">
+          <form onSubmit={formik.handleSubmit} className="flex flex-col gap-3  text-slate-200">
+            <Input name="email" label="Email" value={formik.values.email} onChange={formik.handleChange} required />
 
-            <div className="flex justify-between">
-              <span className="text-slate-200">Senha</span>
+            <Input
+              name="password"
+              label="Senha"
+              value={formik.values.password}
+              onChange={formik.handleChange}
+              type={'password'}
+              required
+            />
+
+            <div className="flex items-center justify-between">
+              <Checkbox label="Lembrar-me" />
               <a className="text-blue-500" href="">
                 Esqueceu sua Senha ?
               </a>
             </div>
-            <input {...register('password')} type="password" className="bg-gray-600 outline-none w-full h-8 p-2 rounded-lg mt-2 mb-4" />
-
-            <div className="flex justify-between items-center mt-6">
-              <div>
-                <input id="checkBox" type="checkbox" className="border-slate-800" />
-                <label htmlFor="checkBox" className="ml-2">
-                  Lembrar-me
-                </label>
-              </div>
-
-              <Button buttonStyle={'default'} buttonType={'submit'}>
+            <div className="ml-auto">
+              <ButtonOrLink intent={'secondary'} type="submit">
                 Entrar
-              </Button>
+              </ButtonOrLink>
             </div>
           </form>
-
-          <div className="p-8 flex items-center">
-            <p className="text-red-600 h-10 flex items-center">{errorMessage}</p>
-            <img className="w-28 ml-auto" src="https://www.resecurity.com.br/site/assets/img/let-s-encrypt-logo-b.png" />
-          </div>
+          <p className="flex h-10 items-center text-red-600">{errorMessage}</p>
         </div>
       </main>
     </div>

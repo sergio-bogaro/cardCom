@@ -1,9 +1,9 @@
 import axios from 'axios';
 
 interface registerClientProps {
-  email: string;
-  password: string;
-  name: string;
+  nome: string;
+  cnpj: string;
+  razao_social: string;
 }
 
 const baseURL = 'https://api-capp.worktabsystems.com.br/api';

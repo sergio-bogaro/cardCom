@@ -4,6 +4,7 @@ import { useContext, useEffect, useState } from 'react';
 import { GoBell, GoPerson } from 'react-icons/go';
 
 import * as Popover from '@radix-ui/react-popover';
+import { ButtonOrLink } from '@ui/ButtonOrLink';
 
 import { UserContext } from '../contexts/auth';
 import styles from '../styles/radixPopover.module.css';
@@ -21,10 +22,10 @@ const Header = ({ title = '' }: headerProps) => {
     router.push('/login');
   };
   return (
-    <div className="flex w-full p-4 mb-4 border-transparent border-solid border-2 border-b-slate-900">
+    <div className="mb-4 flex w-full border-2 border-solid border-transparent border-b-slate-900 p-4">
       <h2 className="text-2xl">{title}</h2>
 
-      <div className="flex gap-4 ml-auto">
+      <div className="ml-auto flex gap-4">
         <Popover.Root>
           <Popover.Trigger>
             <GoBell size={30} color={'gray'} />
@@ -43,9 +44,9 @@ const Header = ({ title = '' }: headerProps) => {
           </Popover.Trigger>
           <Popover.Portal>
             <Popover.Content className={styles.PopoverContent} sideOffset={5} align="end">
-              <div className="flex flex-col gap-2 pb-2">
-                <div className="flex flex-row gap-3 border border-transparent border-b-gray-600 mb-2 p-2">
-                  <div className="bg-gray-300 p-1 rounded h-fit">
+              <div className="flex flex-col pb-2">
+                <div className="mb-2 flex flex-row gap-3 border border-transparent border-b-gray-600 p-2">
+                  <div className="h-fit rounded bg-gray-300 p-1">
                     <GoPerson size={40} color={'gray'} />
                   </div>
                   <div className="mb-2">
@@ -54,12 +55,13 @@ const Header = ({ title = '' }: headerProps) => {
                   </div>
                 </div>
 
-                <Link className="w-full hover:bg-gray-300 pl-2" href="/home/conta">
+                <ButtonOrLink intent={'transparent'} href="/home/conta" fullWidth>
                   Minha Conta
-                </Link>
-                <button className="w-full hover:bg-gray-300 text-left pl-2" onClick={logout}>
+                </ButtonOrLink>
+
+                <ButtonOrLink intent={'transparent'} fullWidth onClick={logout}>
                   Sair
-                </button>
+                </ButtonOrLink>
               </div>
 
               <Popover.Arrow className={styles.PopoverArrow} />

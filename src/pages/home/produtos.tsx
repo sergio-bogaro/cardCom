@@ -1,13 +1,14 @@
-import type { NextPage } from 'next';
 import { useEffect, useState } from 'react';
-import { useForm } from 'react-hook-form';
+
+import { ButtonOrLink } from '@ui/ButtonOrLink';
 
 import Header from '../../components/Header';
-import Modal from '../../components/Modal';
+import { Modal } from '../../components/Modal';
 import SideBar from '../../components/SideBar';
 import Table from '../../components/Table';
 import { registerProducts, searchProducts } from '../../services/products';
 
+import type { NextPage } from 'next';
 const collumns = [
   { heading: 'ID', value: 'id' },
   { heading: 'Produto', value: 'nome' }
@@ -25,13 +26,6 @@ const ListModels: NextPage = () => {
   const [newSearch, setNewSearch] = useState(false);
   const [newProductModal, setNewProductModal] = useState(false);
   const [searchFilter, setSearchFilter] = useState('');
-
-  const {
-    reset,
-    register,
-    handleSubmit,
-    formState: { errors }
-  } = useForm();
 
   const filterTable = (data: any) => {
     const search = data.searchFilter ? 'search=' + data.searchFilter : '';
@@ -54,38 +48,42 @@ const ListModels: NextPage = () => {
   }, [newSearch === true]);
 
   return (
-    <div className="bg-slate-800 h-screen p-3 flex gap-5">
+    <div className="flex h-screen gap-5 bg-slate-800 p-3">
       <SideBar />
 
-      <div className="flex flex-col text-gray-300 w-full">
-        <Header title="Lista de Modelos" />
+      <div className="flex w-full flex-col text-gray-300">
+        <Header title="Lista de Produtos" />
         <div className="flex gap-2">
-          <button onClick={() => setNewProductModal(true)} className="bg-gray-600 py-2 px-4 rounded-lg">
-            Novo Prduto
-          </button>
+          <ButtonOrLink onClick={() => setNewProductModal(true)}>Novo Prduto</ButtonOrLink>
 
-          <form onSubmit={handleSubmit(filterTable)} className="flex gap-6 w-2/5 items-center ml-auto focus-within:w-1/2 transition-all">
-            <input {...register('searchFilter')} placeholder="Pesquisar por nome" className="bg-gray-600 outline-none w-full h-8 p-2 rounded-lg" />
+          {/* <form
+            onSubmit={handleSubmit(filterTable)}
+            className="ml-auto flex w-2/5 items-center gap-6 transition-all focus-within:w-1/2">
+            <input
+              {...register('searchFilter')}
+              placeholder="Pesquisar por nome"
+              className="h-8 w-full rounded-lg bg-gray-600 p-2 outline-none"
+            />
 
-            <button type="submit" className="bg-gray-600 h-8 px-4 rounded-lg">
+            <button type="submit" className="h-8 rounded-lg bg-gray-600 px-4">
               Pesquisar
             </button>
-          </form>
+          </form> */}
         </div>
         <div className="w-full overflow-auto">
           <Table data={productsData} collumns={collumns} />
         </div>
       </div>
 
-      <Modal isOpen={newProductModal} title={'Cadastrar Novo Prduto'} closeModal={() => setNewProductModal(false)}>
+      {/* <Modal isOpen={newProductModal} title={'Cadastrar Novo Prduto'} closeModal={() => setNewProductModal(false)}>
         <form onSubmit={handleSubmit(newProduct)} className="flex flex-col gap-2">
           <p>Produto</p>
-          <input {...register('nome')} className="bg-gray-600 outline-none w-full h-8 p-2 rounded-lg" />
-          <button type="submit" className="bg-gray-600 h-8 px-4 rounded-lg">
+          <input {...register('nome')} className="h-8 w-full rounded-lg bg-gray-600 p-2 outline-none" />
+          <button type="submit" className="h-8 rounded-lg bg-gray-600 px-4">
             salvas
           </button>
         </form>
-      </Modal>
+      </Modal> */}
     </div>
   );
 };

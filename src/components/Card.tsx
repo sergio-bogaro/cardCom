@@ -1,3 +1,6 @@
+import Link from 'next/link';
+import { GoHome } from 'react-icons/go';
+
 interface cardProps {
   cardTitle: string;
   quantity?: string;
@@ -5,18 +8,15 @@ interface cardProps {
 
 const Card = ({ cardTitle, quantity = '' }: cardProps) => {
   return (
-    <a href="">
-      <div className="flex items-center gap-4 p-4 h-20 min-w-[250px] rounded-lg border-solid border-[1px] hover:bg-gray-600 border-gray-600 text-gray-400">
-        <img
-          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTC_EDoIpIJoXuVGCh0GqemNFvbI-TR7tfB6w&usqp=CAU"
-          className="rounded-full h-[60px]"
-        />
+    <Link href="">
+      <div className="flex h-20 min-w-[250px] items-center gap-4 rounded-lg border-[1px] border-solid border-gray-600 p-4 text-gray-400 hover:bg-gray-600">
+        <GoHome size={60} />
         <div>
-          <p className="font-normal text-xs">{cardTitle}</p>
-          <strong className="text-gray-200 text-2xl">{quantity}</strong>
+          <p className="text-xs font-normal">{cardTitle}</p>
+          <strong className="text-2xl text-gray-200">{quantity}</strong>
         </div>
       </div>
-    </a>
+    </Link>
   );
 };
 

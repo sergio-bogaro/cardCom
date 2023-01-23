@@ -1,5 +1,6 @@
 import type { NextPage } from 'next';
 import { useContext, useEffect, useState } from 'react';
+
 import Card from '../../components/Card';
 import Header from '../../components/Header';
 import SideBar from '../../components/SideBar';
@@ -9,11 +10,11 @@ const Home: NextPage = () => {
   const user = useContext(UserContext);
 
   return (
-    <div className="bg-slate-800 h-screen p-3 flex gap-5">
+    <div className="flex h-screen gap-5 bg-slate-800 p-3">
       <SideBar />
 
-      <div className="flex flex-col w-full">
-        <div className="bg-slate-900 w-full rounded-lg text-gray-300 p-3">
+      <div className="flex w-full flex-col">
+        <div className="w-full rounded-lg bg-slate-900 p-3 text-gray-300">
           <Header title="Pagina Inicial" />
           <div className="flex flex-row">
             <div className="w-3/4">
@@ -24,18 +25,13 @@ const Home: NextPage = () => {
             </div>
           </div>
 
-          <div>
-            <div className="flex justify-around flex-wrap mt-10">
-              <Card cardTitle="OC Pendentes" quantity="10" />
-              <Card cardTitle="Requisições Pendentes" quantity="3" />
-              <Card cardTitle="Estoque" quantity="6" />
-            </div>
-
-            <div className="flex justify-around flex-wrap mt-10">
-              <Card cardTitle="Alerta de Contas" quantity="2" />
-              <Card cardTitle="Pedidos de Orçamento" quantity="13" />
-              <Card cardTitle="Fazer pedido" quantity="" />
-            </div>
+          <div className="grid grid-cols-3 gap-10 p-5 ">
+            <Card cardTitle="OC Pendentes" quantity="10" />
+            <Card cardTitle="Requisições Pendentes" quantity="3" />
+            <Card cardTitle="Estoque" quantity="6" />
+            <Card cardTitle="Alerta de Contas" quantity="2" />
+            <Card cardTitle="Pedidos de Orçamento" quantity="13" />
+            <Card cardTitle="Fazer pedido" quantity="" />
           </div>
         </div>
       </div>

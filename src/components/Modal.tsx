@@ -7,7 +7,7 @@ interface modalProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   closeModal: (event?: React.MouseEvent<HTMLElement>) => void;
 }
 
-const Modal = ({ isOpen, title, closeModal, children }: modalProps) => {
+export function Modal({ isOpen, title, closeModal, children }: modalProps) {
   if (!isOpen) return null;
 
   const handleClose = (e: any) => {
@@ -19,21 +19,19 @@ const Modal = ({ isOpen, title, closeModal, children }: modalProps) => {
     <div
       id="wrapper"
       onClick={handleClose}
-      className="fixed inset-0 bg-black bg-opacity-25 backdrop-blur-sm flex justify-center items-center text-black">
+      className="fixed inset-0 -mt-32 flex items-center justify-center bg-black bg-opacity-25 text-black backdrop-blur-sm">
       <div className="w-1/2 max-w-[800px]">
-        <div className="bg-slate-900 text-white rounded-lg">
-          <div className="flex text-2xl p-4">
+        <div className="rounded-lg bg-slate-900 text-white">
+          <div className="flex p-4 text-2xl">
             <h2>{title}</h2>
             <button onClick={closeModal} className="ml-auto">
               X
             </button>
           </div>
-          <div className="border border-transparent border-b-white mb-4"></div>
+          <div className="mb-4 border border-transparent border-b-white"></div>
           <div className="p-4">{children}</div>
         </div>
       </div>
     </div>
   );
-};
-
-export default Modal;
+}
