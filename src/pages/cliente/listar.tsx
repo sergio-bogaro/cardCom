@@ -4,9 +4,9 @@ import { ButtonOrLink } from '@ui/ButtonOrLink';
 import { Input } from '@ui/Input';
 import { CreateClientModal } from '@ui/Modal/Client';
 
-import Header from '../../components/Header';
-import SideBar from '../../components/SideBar';
-import Table from '../../components/Table';
+import Header from '../../components/specific/Header';
+import SideBar from '../../components/specific/SideBar';
+import Table from '../../components/UI/Table';
 import { registerClient, searchClient } from '../../services/clientes';
 
 import type { NextPage } from 'next';

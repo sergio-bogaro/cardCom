@@ -1,13 +1,13 @@
-import { MouseEvent, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import * as ToggleGroup from '@radix-ui/react-toggle-group';
 import { ButtonOrLink } from '@ui/ButtonOrLink';
 import { Input } from '@ui/Input';
 import { CreateModelsModal } from '@ui/Modal/Models';
 
-import Header from '../../components/Header';
-import SideBar from '../../components/SideBar';
-import Table from '../../components/Table';
+import Header from '../../components/specific/Header';
+import SideBar from '../../components/specific/SideBar';
+import Table from '../../components/UI/Table';
 import { searchClient } from '../../services/clientes';
 import { registerModel, searchModels } from '../../services/modelos';
 import styles from '../../styles/radixToggleGroup.module.css';

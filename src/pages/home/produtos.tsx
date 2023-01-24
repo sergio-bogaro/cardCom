@@ -2,10 +2,10 @@ import { useEffect, useState } from 'react';
 
 import { ButtonOrLink } from '@ui/ButtonOrLink';
 
-import Header from '../../components/Header';
-import { Modal } from '../../components/Modal';
-import SideBar from '../../components/SideBar';
-import Table from '../../components/Table';
+import Header from '../../components/specific/Header';
+import SideBar from '../../components/specific/SideBar';
+import { Modal } from '../../components/UI/Modal';
+import Table from '../../components/UI/Table';
 import { registerProducts, searchProducts } from '../../services/products';
 
 import type { NextPage } from 'next';

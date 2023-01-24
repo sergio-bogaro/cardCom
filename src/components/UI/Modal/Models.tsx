@@ -8,7 +8,7 @@ import { Input } from '@ui/Input';
 import { searchClient } from '../../../services/clientes';
 import { registerModel } from '../../../services/modelos';
 import { clientDataType } from '../../../types/client';
-import { Modal } from '../../Modal';
+import { Modal } from '../Modal';
 
 interface createModelModalProps {
   text: string;

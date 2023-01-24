@@ -6,7 +6,7 @@ interface cardProps {
   quantity?: string;
 }
 
-const Card = ({ cardTitle, quantity = '' }: cardProps) => {
+export const Card = ({ cardTitle, quantity = '' }: cardProps) => {
   return (
     <Link href="">
       <div className="flex h-20 min-w-[250px] items-center gap-4 rounded-lg border-[1px] border-solid border-gray-600 p-4 text-gray-400 hover:bg-gray-600">
@@ -19,5 +19,3 @@ const Card = ({ cardTitle, quantity = '' }: cardProps) => {
     </Link>
   );
 };
-
-export default Card;

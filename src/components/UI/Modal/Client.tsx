@@ -5,7 +5,7 @@ import { ButtonOrLink } from '@ui/ButtonOrLink';
 import { Input } from '@ui/Input';
 
 import { registerClient } from '../../../services/clientes';
-import { Modal } from '../../Modal';
+import { Modal } from '../Modal';
 
 interface createClientModalProps {
   text: string;

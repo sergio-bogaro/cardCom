@@ -1,6 +1,6 @@
 import type { NextPage } from 'next';
-import Header from '../../components/Header';
-import SideBar from '../../components/SideBar';
+import Header from '../../components/specific/Header';
+import SideBar from '../../components/specific/SideBar';
 
 const Conta: NextPage = () => {
   return (

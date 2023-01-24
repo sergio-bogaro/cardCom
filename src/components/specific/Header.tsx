@@ -1,13 +1,12 @@
-import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { useContext, useEffect, useState } from 'react';
+import { useContext } from 'react';
 import { GoBell, GoPerson } from 'react-icons/go';
 
 import * as Popover from '@radix-ui/react-popover';
 import { ButtonOrLink } from '@ui/ButtonOrLink';
 
-import { UserContext } from '../contexts/auth';
-import styles from '../styles/radixPopover.module.css';
+import { UserContext } from '../../contexts/auth';
+import styles from '../../styles/radixPopover.module.css';
 
 interface headerProps {
   title?: string;
@@ -54,11 +53,9 @@ const Header = ({ title = '' }: headerProps) => {
                     <p>{user.email}</p>
                   </div>
                 </div>
-
                 <ButtonOrLink intent={'transparent'} href="/home/conta" fullWidth>
                   Minha Conta
                 </ButtonOrLink>
-
                 <ButtonOrLink intent={'transparent'} fullWidth onClick={logout}>
                   Sair
                 </ButtonOrLink>

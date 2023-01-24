@@ -3,11 +3,11 @@ import Link from 'next/link';
 import { GoHome } from 'react-icons/go';
 
 import { ButtonOrLink } from '@ui/ButtonOrLink';
+import { DropDownButton } from '@ui/DropDownButton';
 import { CreateClientModal } from '@ui/Modal/Client';
 import { CreateModelsModal } from '@ui/Modal/Models';
 
-import logoImage from '../../public/logo.png';
-import { DropDownButton } from './DropDownButton';
+import logoImage from '../../../public/logo.png';
 
 const SideBar = () => {
   return (
