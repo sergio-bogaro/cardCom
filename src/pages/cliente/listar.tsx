@@ -50,7 +50,7 @@ const ListClients: NextPage = () => {
         <Header title="Lista de Clientes" />
         <div className="flex gap-4">
           <div>
-            <CreateClientModal text="Novo Cliente" />
+            <CreateClientModal text="Novo Cliente" listPage />
           </div>
           <ButtonOrLink intent={'transparent'}>Importar Planilha</ButtonOrLink>
 

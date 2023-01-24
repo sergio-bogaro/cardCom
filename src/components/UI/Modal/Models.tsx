@@ -17,6 +17,7 @@ interface createModelModalProps {
 
 export function CreateModelsModal({ text }: createModelModalProps) {
   const [isOpen, setIsOpen] = useState(false);
+  const [nextStep, setNextStep] = useState(false);
   const [clientData, setClientData] = useState();
 
   const formik = useFormik({
@@ -73,6 +74,14 @@ export function CreateModelsModal({ text }: createModelModalProps) {
             </ButtonOrLink>
           </div>
         </form>
+      </Modal>
+
+      <Modal title="Modelo Criado" isOpen={nextStep} closeModal={() => setNextStep(false)}>
+        <p>Modelo criado</p>
+        <div className="grid grid-flow-col justify-around">
+          <ButtonOrLink> Fechar </ButtonOrLink>
+          <ButtonOrLink href="/modelos/listar"> Pagina Modelos </ButtonOrLink>
+        </div>
       </Modal>
     </>
   );

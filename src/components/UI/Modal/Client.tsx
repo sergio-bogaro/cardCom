@@ -12,8 +12,9 @@ interface createClientModalProps {
   listPage?: boolean;
 }
 
-export function CreateClientModal({ text }: createClientModalProps) {
+export function CreateClientModal({ text, listPage }: createClientModalProps) {
   const [isOpen, setIsOpen] = useState(false);
+  const [nextStep, setNextStep] = useState(false);
 
   const formik = useFormik({
     initialValues: {
@@ -22,9 +23,14 @@ export function CreateClientModal({ text }: createClientModalProps) {
       razao_social: ''
     },
     onSubmit: (data) => {
-      registerClient(data).then((response) => {
-        console.log(response);
-      });
+      registerClient(data)
+        .then((res) => {
+          if (!listPage) {
+            setIsOpen(false);
+            setNextStep(true);
+          }
+        })
+        .catch((err) => console.log(err));
     }
   });
 
@@ -53,6 +59,14 @@ export function CreateClientModal({ text }: createClientModalProps) {
             </ButtonOrLink>
           </div>
         </form>
+      </Modal>
+
+      <Modal title="Cliente Criado" isOpen={nextStep} closeModal={() => setNextStep(false)}>
+        <p>Cliente criado</p>
+        <div className="grid grid-flow-col justify-around">
+          <ButtonOrLink> Fechar </ButtonOrLink>
+          <ButtonOrLink href="/cliente/listar"> Pagina Clientes </ButtonOrLink>
+        </div>
       </Modal>
     </>
   );

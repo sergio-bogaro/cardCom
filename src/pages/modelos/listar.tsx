@@ -100,7 +100,7 @@ const ListModels: NextPage = () => {
             </ToggleGroup.Item>
           </ToggleGroup.Root>
           <div>
-            <CreateModelsModal text="Novo Modelo" />
+            <CreateModelsModal listPage text="Novo Modelo" />
           </div>
 
           <form className="ml-auto flex w-1/2  transition-all">
