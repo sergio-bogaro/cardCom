@@ -2,11 +2,12 @@ import { useFormik } from 'formik';
 import { useEffect, useState } from 'react';
 import Select from 'react-select';
 
+import { searchClient } from '@services/clientes';
+import { registerModel } from '@services/modelos';
 import { ButtonOrLink } from '@ui/ButtonOrLink';
 import { Input } from '@ui/Input';
+import { SelctStyles } from '@ui/Select';
 
-import { searchClient } from '../../../services/clientes';
-import { registerModel } from '../../../services/modelos';
 import { clientDataType } from '../../../types/client';
 import { Modal } from '../Modal';
 
@@ -57,7 +58,8 @@ export function CreateModelsModal({ text }: createModelModalProps) {
       </ButtonOrLink>
       <Modal title="Cadastar Modelo" isOpen={isOpen} closeModal={() => setIsOpen(false)}>
         <form onSubmit={formik.handleSubmit} className="flex flex-col gap-2">
-          <Select className="text-black" options={clientData} />
+          <p>Cliente</p>
+          <Select styles={SelctStyles} className="text-gray-300" options={clientData} placeholder=" ..." />
           <Input required label="Nome do Modelo" name="" value={formik.values.nome} onChange={formik.handleChange} />
 
           <Input required label="Status" name="" value={formik.values.status} onChange={formik.handleChange} />
