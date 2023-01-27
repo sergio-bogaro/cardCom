@@ -9,7 +9,7 @@ import { Input } from '@ui/Input';
 import { SelctStyles } from '@ui/Select';
 
 import { clientDataType } from '../../../types/client';
-import { Modal } from '../Modal';
+import { Modal } from './Modal';
 
 interface createModelModalProps {
   text: string;

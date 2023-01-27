@@ -1,11 +1,15 @@
+import { ReactNode } from 'react';
+
 interface collumnProps {
   heading: string;
   value: string;
 }
 
 interface tableProps {
-  data: any;
   collumns: collumnProps[];
+  data: Array<{
+    [x: string]: ReactNode;
+  }>;
 }
 
 const Table = ({ data, collumns }: tableProps) => {

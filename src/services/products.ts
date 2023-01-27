@@ -27,5 +27,5 @@ export const registerProducts = (prductData: any) => {
 };
 
 export const deleteProducts = (prductID: string) => {
-  return transactionClient.delete('/v1/produto/info');
+  return transactionClient.delete('/v1/produto/delete/' + prductID);
 };

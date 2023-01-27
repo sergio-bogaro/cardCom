@@ -1,31 +1,50 @@
-import { useEffect, useState } from 'react';
+import { MouseEvent, useEffect, useState } from 'react';
+import { GoPencil, GoPlus, GoTrashcan } from 'react-icons/go';
 
+import * as AlertDialog from '@radix-ui/react-alert-dialog';
 import { ButtonOrLink } from '@ui/ButtonOrLink';
+import { DeleteItem } from '@ui/Modal/DeleteItem';
 
 import Header from '../../components/specific/Header';
 import SideBar from '../../components/specific/SideBar';
-import { Modal } from '../../components/UI/Modal';
+import { Modal } from '../../components/UI/Modal/Modal';
 import Table from '../../components/UI/Table';
-import { registerProducts, searchProducts } from '../../services/products';
+import { deleteProducts, registerProducts, searchProducts } from '../../services/products';
+import styles from '../../styles/alertDialogRadix.module.css';
 
 import type { NextPage } from 'next';
 const collumns = [
   { heading: 'ID', value: 'id' },
-  { heading: 'Produto', value: 'nome' }
+  { heading: 'Produto', value: 'nome' },
+  { heading: 'Opções', value: 'opcoes' }
 ];
 
 const productsDataMask = [
   {
     id: '',
-    nome: ''
+    nome: '',
+    opcoes: <></>
   }
 ];
 
 const ListModels: NextPage = () => {
   const [productsData, setProductsData] = useState(productsDataMask);
+  const [activeProductID, setActiveProductID] = useState('');
   const [newSearch, setNewSearch] = useState(false);
+  const [deleteProductModal, setDeleteProductModal] = useState(false);
   const [newProductModal, setNewProductModal] = useState(false);
   const [searchFilter, setSearchFilter] = useState('');
+
+  function openDeleteModal(id: string) {
+    setActiveProductID(id);
+    setDeleteProductModal(true);
+  }
+
+  function deleteProduct(productID: string) {
+    deleteProducts(productID)
+      .then((res) => console.log(res))
+      .catch((err) => console.log(err));
+  }
 
   const filterTable = (data: any) => {
     const search = data.searchFilter ? 'search=' + data.searchFilter : '';
@@ -43,12 +62,56 @@ const ListModels: NextPage = () => {
   useEffect(() => {
     setNewSearch(false);
     searchProducts(searchFilter)
-      .then((res) => setProductsData(res.data.data))
+      .then((res) => {
+        const table = res.data.data.map((product: any) => ({
+          nome: product.nome,
+          id: product.id,
+          opcoes: (
+            <div className="mx-auto flex w-fit gap-1">
+              <ButtonOrLink>
+                <GoPencil />
+              </ButtonOrLink>
+
+              <AlertDialog.Root>
+                <AlertDialog.Trigger asChild>
+                  <ButtonOrLink intent={'dangeer'}>
+                    <GoTrashcan />
+                  </ButtonOrLink>
+                </AlertDialog.Trigger>
+                <AlertDialog.Portal>
+                  <AlertDialog.Overlay className={styles.AlertDialogOverlay} />
+                  <AlertDialog.Content className={styles.AlertDialogContent}>
+                    <p>Tem certeza disso ?</p>
+                    <p>Essa ação não pode ser desfeita</p>
+
+                    <div className="mt-5 flex justify-around">
+                      <AlertDialog.Cancel asChild>
+                        <ButtonOrLink intent={'secondary'}>Cancelar</ButtonOrLink>
+                      </AlertDialog.Cancel>
+                      <AlertDialog.Action asChild>
+                        <ButtonOrLink intent={'dangeer'} onClick={() => deleteProduct(product.id)}>
+                          Apagar
+                        </ButtonOrLink>
+                      </AlertDialog.Action>
+                    </div>
+                  </AlertDialog.Content>
+                </AlertDialog.Portal>
+              </AlertDialog.Root>
+
+              <ButtonOrLink intent={'secondary'}>
+                <GoPlus />
+              </ButtonOrLink>
+            </div>
+          )
+        }));
+
+        setProductsData(table);
+      })
       .catch((err) => console.log(err));
   }, [newSearch === true]);
 
   return (
-    <div className="flex h-screen gap-5 bg-slate-800 p-3">
+    <div className="flex h-screen gap-3 bg-slate-800 p-2">
       <SideBar />
 
       <div className="flex w-full flex-col text-gray-300">

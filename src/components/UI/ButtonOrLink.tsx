@@ -11,6 +11,7 @@ const buttonProps = cva(
       intent: {
         primary: 'bg-gray-600 hover:bg-gray-700',
         secondary: 'bg-blue-600 hover:bg-blue-700',
+        dangeer: 'bg-red-600 hover:bg-red-700',
         transparent: 'bg-transparent hover:bg-gray-500'
       },
       fullWidth: {
