@@ -1,11 +1,15 @@
 import '../../styles/globals.css';
-import type { AppProps } from 'next/app';
+
+import Layout from '../components/specific/layout';
 import { UserProvider } from '../contexts/auth';
 
+import type { AppProps } from 'next/app';
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <UserProvider>
-      <Component {...pageProps} />
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
     </UserProvider>
   );
 }

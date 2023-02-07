@@ -14,29 +14,23 @@ const Conta: NextPage = () => {
   const onSubmit = (data: any) => console.log(data);
 
   return (
-    <div className="flex h-screen gap-5 bg-slate-800 p-3">
-      <SideBar />
+    <div>
+      <p className="text-xl">Usuário: {user.nome}</p>
+      <span>Instruções</span>
+      <ul className="ml-4">
+        <li>• Digite sua nova senha e clique em salvar;</li>
+        <li>• Caso não deseje alterar a senha, clique somente em salvar</li>
+      </ul>
 
-      <div className="flex w-full flex-col text-gray-300">
-        <Header title="Minha Conta" />
+      <form className="flex w-1/2 flex-col gap-2 text-slate-200">
+        <Input label="Senha" />
 
-        <p className="text-xl">Usuário: {user.nome}</p>
-        <span>Instruções</span>
-        <ul className="ml-4">
-          <li>• Digite sua nova senha e clique em salvar;</li>
-          <li>• Caso não deseje alterar a senha, clique somente em salvar</li>
-        </ul>
+        <Input label="Confirme a Senha" />
 
-        <form className="flex w-1/2 flex-col gap-2 text-slate-200">
-          <Input label="Senha" />
-
-          <Input label="Confirme a Senha" />
-
-          <ButtonOrLink fullWidth intent="secondary">
-            Salvar
-          </ButtonOrLink>
-        </form>
-      </div>
+        <ButtonOrLink fullWidth intent="secondary">
+          Salvar
+        </ButtonOrLink>
+      </form>
     </div>
   );
 };

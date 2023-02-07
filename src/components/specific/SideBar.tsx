@@ -13,7 +13,7 @@ import logoImage from '../../../public/logo.png';
 
 const SideBar = () => {
   return (
-    <div className="hidden w-1/4 min-w-[280px] max-w-[350px] rounded-lg bg-slate-900 p-3 text-gray-300 lg:block">
+    <div className="hidden w-1/4 min-w-[280px] max-w-[350px] rounded-lg bg-slate-850 p-3 text-gray-300 lg:block">
       <div className="mx-auto flex w-4/5 flex-col items-center gap-4">
         <Link href="/home">
           <Image className="my-6 mx-auto" src={logoImage} alt={'Logo do Site'} />

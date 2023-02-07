@@ -6,6 +6,11 @@ module.exports = {
     extend: {
       width: {
         '128': '32rem',
+      },
+      colors: {
+        'slate' : {
+          850: '#1B2636'
+        }
       }
     },
   },

@@ -1,6 +1,7 @@
 import { createContext, ReactNode, useEffect, useState } from 'react';
 
 const userDataType = {
+  token_access: '',
   nome: '',
   email: '',
   id: ''
@@ -20,10 +21,10 @@ export function UserProvider({ children }: userProviderProps) {
   const [userData, setUserData] = useState(userDataType);
 
   useEffect(() => {
-    const a = localStorage.getItem('userDataCAP');
-    if (a) {
-      const b = JSON.parse(a);
-      setUserData(b);
+    const data = localStorage.getItem('userDataCAP');
+    if (data) {
+      const dataTransform = JSON.parse(data);
+      setUserData(dataTransform);
     }
   }, []);
 

@@ -160,35 +160,30 @@ const ListModels: NextPage = () => {
   }
 
   return (
-    <div className="flex h-screen gap-5 bg-slate-800 p-3">
-      <SideBar />
-
-      <div className="flex w-full flex-col text-gray-300">
-        <Header title="Lista de Modelos" />
-        <div className="flex gap-2">
-          <ToggleGroup.Root className={toggleStyles.ToggleGroup} type="single" defaultValue=" " onValueChange={newValue}>
-            <ToggleGroup.Item className={toggleStyles.ToggleGroupItem} value="status=pendente">
-              Aprovação
-            </ToggleGroup.Item>
-            <ToggleGroup.Item className={toggleStyles.ToggleGroupItem} value=" " aria-label="Center aligned">
-              Todos os modelos
-            </ToggleGroup.Item>
-            <ToggleGroup.Item className={toggleStyles.ToggleGroupItem} value="status=reprovado" aria-label="Right aligned">
-              Reprovados
-            </ToggleGroup.Item>
-          </ToggleGroup.Root>
-          <div>
-            <CreateModelsModal listPage text="Novo Modelo" />
-          </div>
-
-          <form className="ml-auto flex w-1/2  transition-all">
-            <Input label="" placeholder="Pesquisar Cliente" />
-            <ButtonOrLink intent={'primary'}>Pesquisar</ButtonOrLink>
-          </form>
+    <div>
+      <div className="flex gap-2">
+        <ToggleGroup.Root className={toggleStyles.ToggleGroup} type="single" defaultValue=" " onValueChange={newValue}>
+          <ToggleGroup.Item className={toggleStyles.ToggleGroupItem} value="status=pendente">
+            Aprovação
+          </ToggleGroup.Item>
+          <ToggleGroup.Item className={toggleStyles.ToggleGroupItem} value=" " aria-label="Center aligned">
+            Todos os modelos
+          </ToggleGroup.Item>
+          <ToggleGroup.Item className={toggleStyles.ToggleGroupItem} value="status=reprovado" aria-label="Right aligned">
+            Reprovados
+          </ToggleGroup.Item>
+        </ToggleGroup.Root>
+        <div>
+          <CreateModelsModal listPage text="Novo Modelo" />
         </div>
-        <div className="w-full overflow-auto">
-          <Table data={modelsData} collumns={collumns} />
-        </div>
+
+        <form className="ml-auto flex w-1/2  transition-all">
+          <Input label="" placeholder="Pesquisar Cliente" />
+          <ButtonOrLink intent={'primary'}>Pesquisar</ButtonOrLink>
+        </form>
+      </div>
+      <div className="w-full overflow-auto">
+        <Table data={modelsData} collumns={collumns} />
       </div>
     </div>
   );

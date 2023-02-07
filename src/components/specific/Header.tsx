@@ -18,7 +18,8 @@ const Header = ({ title = '' }: headerProps) => {
 
   const logout = () => {
     localStorage.removeItem('accessTokenCAP');
-    router.push('/login');
+    localStorage.removeItem('userDataCAP');
+    router.push('/');
   };
   return (
     <div className="mb-4 flex border-2 border-solid border-transparent border-b-slate-900 p-4">
