@@ -10,15 +10,13 @@ interface modalProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 export function Modal({ isOpen, title, closeModal, children }: modalProps) {
   if (!isOpen) return null;
 
-  function handleClose(e: any) {
-    console.log('');
-    //if (e.target.id === 'wrapper') closeModal();
-  }
+  // function handleClose(e: any) {
+  //   if (e.target.id === 'wrapper') closeModal();
+  // }
 
   return (
     <div
       id="wrapper"
-      onClick={handleClose}
       className="fixed inset-0 flex items-start justify-center bg-black bg-opacity-25 text-black backdrop-blur-sm">
       <div className="mt-64 w-1/2 max-w-[800px]">
         <div className="rounded-lg bg-slate-900 text-white">

@@ -1,6 +1,6 @@
 import { useFormik } from 'formik';
 import Papa from 'papaparse';
-import { ChangeEvent, MouseEvent, useEffect, useState } from 'react';
+import { ChangeEvent, FormEvent, MouseEvent, useEffect, useState } from 'react';
 import {
     GoArrowLeft, GoArrowRight, GoFile, GoHome, GoPencil, GoPerson, GoPlus
 } from 'react-icons/go';
@@ -9,6 +9,7 @@ import { HiOutlineMagnifyingGlass } from 'react-icons/hi2';
 import * as Popover from '@radix-ui/react-popover';
 import { ButtonOrLink } from '@ui/ButtonOrLink';
 import { Input } from '@ui/Input';
+import { Loading } from '@ui/Loading';
 import { Modal } from '@ui/Modal/Modal';
 import Pagination from '@ui/Pagination';
 
@@ -50,6 +51,7 @@ const ListClients: NextPage = () => {
   const [totalPages, setTotalPages] = useState(1);
   const [currentPage, setCurrentPage] = useState(1);
   const [newSearch, setNewSearch] = useState(false);
+  const [loadingData, setLoadingData] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const [searchFilter, setSearchFilter] = useState('');
 
@@ -76,7 +78,8 @@ const ListClients: NextPage = () => {
     }
   });
 
-  const filterTable = (data: any) => {
+  const filterTable = (e: FormEvent) => {
+    e.preventDefault();
     setNewSearch(true);
   };
 
@@ -151,6 +154,7 @@ const ListClients: NextPage = () => {
 
   useEffect(() => {
     setNewSearch(false);
+    setLoadingData(true);
     const page = (currentPage - 1).toString();
     searchClient(searchFilter, page)
       .then((res) => {
@@ -163,6 +167,7 @@ const ListClients: NextPage = () => {
         }));
 
         setClientData(table);
+        setLoadingData(false);
       })
       .catch((err) => console.log(err));
   }, [newSearch === true]);
@@ -171,7 +176,7 @@ const ListClients: NextPage = () => {
     <div className="flex h-screen w-full bg-slate-800 p-2">
       <SideBar />
 
-      <div className="flex w-full flex-col p-2 text-gray-300 lg:w-3/4">
+      <div className="flex w-full flex-col p-2 text-gray-300">
         <Header title="Lista de Clientes" />
         <div className="flex gap-4">
           <ButtonOrLink intent={'secondary'} onClick={() => setIsOpen(true)}>
@@ -187,7 +192,7 @@ const ListClients: NextPage = () => {
             <input id="importButton" className="hidden" type={'file'} accept=".csv" onChange={clientByExcel} />
           </label>
 
-          <form className="ml-auto flex w-1/2 gap-2">
+          <form className="ml-auto flex w-1/2 gap-2" onSubmit={filterTable}>
             <Input
               label=""
               placeholder="Pesquisar Cliente"
@@ -203,6 +208,7 @@ const ListClients: NextPage = () => {
           <Table data={clientData} collumns={collumns} />
         </div>
         <Pagination totalPages={totalPages} currentPage={currentPage} handlePageChange={handlePageChange} />
+        <Loading isLoading={loadingData} />
       </div>
 
       <Modal title="Cadastar Cliente" isOpen={isOpen} closeModal={() => setIsOpen(false)}>
