@@ -74,7 +74,7 @@ const ListModels: NextPage = () => {
 
               <AlertDialog.Root>
                 <AlertDialog.Trigger asChild>
-                  <ButtonOrLink intent={'dangeer'}>
+                  <ButtonOrLink intent={'danger'}>
                     <GoTrashcan />
                   </ButtonOrLink>
                 </AlertDialog.Trigger>
@@ -86,10 +86,10 @@ const ListModels: NextPage = () => {
 
                     <div className="mt-5 flex justify-around">
                       <AlertDialog.Cancel asChild>
-                        <ButtonOrLink intent={'secondary'}>Cancelar</ButtonOrLink>
+                        <ButtonOrLink intent={'primary'}>Cancelar</ButtonOrLink>
                       </AlertDialog.Cancel>
                       <AlertDialog.Action asChild>
-                        <ButtonOrLink intent={'dangeer'} onClick={() => deleteProduct(product.id)}>
+                        <ButtonOrLink intent={'danger'} onClick={() => deleteProduct(product.id)}>
                           Apagar
                         </ButtonOrLink>
                       </AlertDialog.Action>

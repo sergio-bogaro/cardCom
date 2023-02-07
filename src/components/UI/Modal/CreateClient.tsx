@@ -9,10 +9,11 @@ import { Modal } from './Modal';
 
 interface createClientModalProps {
   text: string;
+  buttonIntent: 'primary' | 'secondary' | 'transparent' | 'danger';
   listPage?: boolean;
 }
 
-export function CreateClientModal({ text, listPage }: createClientModalProps) {
+export function CreateClientModal({ text, listPage, buttonIntent }: createClientModalProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [nextStep, setNextStep] = useState(false);
 
@@ -36,7 +37,7 @@ export function CreateClientModal({ text, listPage }: createClientModalProps) {
 
   return (
     <>
-      <ButtonOrLink fullWidth intent={'transparent'} onClick={() => setIsOpen(true)}>
+      <ButtonOrLink fullWidth intent={buttonIntent} onClick={() => setIsOpen(true)}>
         {text}
       </ButtonOrLink>
       <Modal title="Cadastar Cliente" isOpen={isOpen} closeModal={() => setIsOpen(false)}>

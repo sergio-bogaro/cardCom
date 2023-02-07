@@ -17,11 +17,14 @@ const inputProps = cva('p-2 rounded outline-none w-full', {
 
 interface Props extends InputProps, VariantProps<typeof inputProps> {
   label: string;
+  fullWidth?: boolean;
 }
 
-export function Input({ styles, label, ...Props }: Props) {
+export function Input({ styles, fullWidth = true, label, ...Props }: Props) {
+  const wrapperWidht = fullWidth ? 'w-full' : 'w-fit';
+
   return (
-    <div className="w-full">
+    <div className={wrapperWidht}>
       <p>{label}</p>
 
       <input className={inputProps({ styles })} {...Props} />

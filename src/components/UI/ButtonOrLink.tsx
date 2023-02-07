@@ -11,7 +11,7 @@ const buttonProps = cva(
       intent: {
         primary: 'bg-gray-600 hover:bg-gray-700',
         secondary: 'bg-blue-600 hover:bg-blue-700',
-        dangeer: 'bg-red-600 hover:bg-red-700',
+        danger: 'bg-red-600 hover:bg-red-700',
         transparent: 'bg-transparent hover:bg-gray-500'
       },
       fullWidth: {
@@ -28,7 +28,7 @@ const buttonProps = cva(
 
 interface Props extends ButtonOrLinkProps, VariantProps<typeof buttonProps> {}
 
-export function ButtonOrLink({ intent, fullWidth, href, children, onClick }: Props) {
+export function ButtonOrLink({ intent, fullWidth, href, children, onClick, disabled }: Props) {
   const isLink = typeof href !== 'undefined';
 
   if (isLink) {
@@ -40,7 +40,7 @@ export function ButtonOrLink({ intent, fullWidth, href, children, onClick }: Pro
   }
 
   return (
-    <button className={buttonProps({ intent, fullWidth })} onClick={onClick}>
+    <button disabled={disabled} className={buttonProps({ intent, fullWidth })} onClick={onClick}>
       {children}
     </button>
   );

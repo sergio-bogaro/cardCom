@@ -39,7 +39,7 @@ export function DeleteItem({ isOpen, title, closeModal, deleteFunction }: modalP
               <ButtonOrLink intent={'secondary'} onClick={closeModal}>
                 Sair
               </ButtonOrLink>
-              <ButtonOrLink intent={'dangeer'} onClick={() => deleteFunction()}>
+              <ButtonOrLink intent={'danger'} onClick={() => deleteFunction()}>
                 Apagar
               </ButtonOrLink>
             </div>

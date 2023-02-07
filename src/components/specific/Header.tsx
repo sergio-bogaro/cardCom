@@ -21,7 +21,7 @@ const Header = ({ title = '' }: headerProps) => {
     router.push('/login');
   };
   return (
-    <div className="mb-4 flex w-full border-2 border-solid border-transparent border-b-slate-900 p-4">
+    <div className="mb-4 flex border-2 border-solid border-transparent border-b-slate-900 p-4">
       <h2 className="text-2xl">{title}</h2>
 
       <div className="ml-auto flex gap-4">

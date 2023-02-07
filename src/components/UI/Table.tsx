@@ -14,9 +14,9 @@ interface tableProps {
 
 const Table = ({ data, collumns }: tableProps) => {
   return (
-    <table className="w-full min-w-[1000px] text-center">
+    <table className="mt-10  w-full text-left">
       <thead>
-        <tr className="border-2 border-solid border-transparent border-b-slate-900">
+        <tr>
           {collumns.map((item, index) => (
             <th className="p-3" key={item.heading + index}>
               {item.heading}
@@ -25,11 +25,13 @@ const Table = ({ data, collumns }: tableProps) => {
         </tr>
       </thead>
 
-      <tbody>
+      <tbody className="border border-solid border-slate-700 bg-slate-900">
         {data.map((item: any, index: any) => (
-          <tr key={'TableLine' + index} className="m-6 border-2 border-solid border-transparent border-b-slate-900">
+          <tr key={'TableLine' + index} className="border border-b border-slate-700">
             {collumns.map((collumnItem, index) => (
-              <td className="p-3" key={item[collumnItem.value] + index}>
+              <td
+                className="border-solid border-slate-700 p-3 last:border last:text-center"
+                key={item[collumnItem.value] + index}>
                 {item[collumnItem.value]}
               </td>
             ))}

@@ -20,16 +20,16 @@ const transactionClient = axios.create({
   }
 });
 
-export const searchClient = (filter: string) => {
-  const searchFilter = 'search=' + filter;
-  return transactionClient.get('/v1/cliente/search?' + searchFilter);
+export const searchClient = (filter: string, page: string) => {
+  const searchProps = `search=${filter}&page=${page}`;
+  return transactionClient.get('/v1/cliente/search?' + searchProps);
 };
 
 export const clientInfo = () => {
   return transactionClient.get('/v1/cliente/info/12');
 };
 
-export const registerClient = (data: registerClientProps) => {
+export const registerClient = (data: any) => {
   return transactionClient.post('v1/cliente/save', data);
 };
 
