@@ -18,9 +18,9 @@ const SideBar = () => {
   if (isOpen)
     return (
       <>
-        <div className="fixed z-10 h-full w-1/4 min-w-[280px] max-w-[350px] rounded-lg bg-slate-900 p-6 text-gray-300 lg:static ">
+        <div className="fixed z-10 h-full w-1/4 min-w-[280px] max-w-[350px] overflow-auto rounded-lg bg-slate-900 p-5 text-gray-300 lg:static ">
           <div className="flex flex-col items-center gap-4">
-            <div className="flex items-center gap-2 border-2 border-transparent border-b-slate-900">
+            <div className="flex items-center gap-2 border-2 border-transparent border-b-slate-800">
               <Link href="/home">
                 <Image className="mx-auto mb-6" src={logoImage} alt={'Logo do Site'} />
               </Link>
@@ -35,7 +35,7 @@ const SideBar = () => {
               Pagina Inicial
             </ButtonOrLink>
 
-            <DropDownButton icon="person" title="Administração">
+            <DropDownButton icon="temple" title="Administração">
               <ButtonOrLink intent={'transparent'} fullWidth href="/cliente/listar">
                 • Cadastros
               </ButtonOrLink>
@@ -49,13 +49,13 @@ const SideBar = () => {
               </ButtonOrLink>
             </DropDownButton>
 
-            <DropDownButton icon="person" title="Auto Atendimento">
+            <DropDownButton title="Auto Atendimento">
               <ButtonOrLink intent={'transparent'} fullWidth href="/cliente/listar">
                 • Fazer Pedido
               </ButtonOrLink>
             </DropDownButton>
 
-            <DropDownButton icon="person" title="Clientes e Pedidos">
+            <DropDownButton icon="people" title="Clientes e Pedidos">
               <ButtonOrLink intent={'transparent'} fullWidth href="/cliente/listar">
                 • Zerar Saldo
               </ButtonOrLink>
@@ -90,7 +90,7 @@ const SideBar = () => {
               </ButtonOrLink>
             </DropDownButton>
 
-            <DropDownButton icon="person" title="Pedidos">
+            <DropDownButton icon="cart" title="Pedidos">
               <ButtonOrLink intent={'transparent'} fullWidth href="/cliente/listar">
                 • Fazer Pedido Manual
               </ButtonOrLink>
@@ -116,7 +116,7 @@ const SideBar = () => {
               </ButtonOrLink>
             </DropDownButton>
 
-            <DropDownButton icon="person" title="Expedição">
+            <DropDownButton icon="table" title="Expedição">
               <ButtonOrLink intent={'transparent'} fullWidth href="/cliente/listar">
                 • Entregas
               </ButtonOrLink>
