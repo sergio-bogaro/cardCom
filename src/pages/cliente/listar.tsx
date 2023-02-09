@@ -182,7 +182,7 @@ const ListClients: NextPage = () => {
           className="flex cursor-pointer items-center gap-2 rounded bg-green-700 px-4 py-2 hover:bg-green-800"
           htmlFor="importButton">
           <GoFile />
-          Importar Planilha
+          Importar
           <input id="importButton" className="hidden" type={'file'} accept=".csv" onChange={clientByExcel} />
         </label>
 

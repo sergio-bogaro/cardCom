@@ -1,10 +1,12 @@
 import { ReactNode, useState } from 'react';
-import { GoPerson } from 'react-icons/go';
+import { AiFillTool } from 'react-icons/ai';
+import { FaBoxes, FaDollarSign } from 'react-icons/fa';
+import { MdPerson } from 'react-icons/md';
 
 import { ButtonOrLink } from '@ui/ButtonOrLink';
 
 interface dropDownProps {
-  icon?: 'person';
+  icon?: 'person' | 'box' | 'money' | 'tool';
   children: ReactNode;
   title: string;
 }
@@ -12,7 +14,18 @@ interface dropDownProps {
 export const DropDownButton = ({ children, title, icon }: dropDownProps) => {
   const [modalOpen, setModalOpen] = useState(false);
 
-  const buttonIcon = icon == 'person' ? <GoPerson /> : '';
+  const buttonIcon =
+    icon == 'person' ? (
+      <MdPerson size={22} />
+    ) : icon == 'box' ? (
+      <FaBoxes size={22} />
+    ) : icon == 'money' ? (
+      <FaDollarSign size={22} />
+    ) : icon == 'tool' ? (
+      <AiFillTool size={22} />
+    ) : (
+      ''
+    );
 
   function handleMenuOpen() {
     setModalOpen(!modalOpen);

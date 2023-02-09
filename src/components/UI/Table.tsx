@@ -18,7 +18,7 @@ const Table = ({ data, collumns }: tableProps) => {
       <thead>
         <tr>
           {collumns.map((item, index) => (
-            <th className="p-3" key={item.heading + index}>
+            <th className="p-3 text-xl font-bold" key={item.heading + index}>
               {item.heading}
             </th>
           ))}
@@ -30,7 +30,7 @@ const Table = ({ data, collumns }: tableProps) => {
           <tr key={'TableLine' + index} className="border border-b border-slate-700">
             {collumns.map((collumnItem, index) => (
               <td
-                className="border-solid border-slate-700 p-3 last:border last:text-center"
+                className="min-w-[200px] border-solid border-slate-700 p-3 last:min-w-fit last:border last:text-center"
                 key={item[collumnItem.value] + index}>
                 {item[collumnItem.value]}
               </td>

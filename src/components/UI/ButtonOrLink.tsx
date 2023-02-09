@@ -5,7 +5,7 @@ import { ComponentProps } from 'react';
 type ButtonOrLinkProps = ComponentProps<'button'> & ComponentProps<'a'>;
 
 const buttonProps = cva(
-  'flex items-center py-2 px-4 gap-2 rounded focus:outline-none transition-all disabled:opacity-60 focus:ring-offset-black focus:ring-offset-1 disabled:pointer-events-none hover:bg-opacity-80 ',
+  'flex items-center py-2 px-4 gap-2 font-semibold rounded focus:outline-none transition-all disabled:opacity-60 focus:ring-offset-black focus:ring-offset-1 disabled:pointer-events-none hover:bg-opacity-80 ',
   {
     variants: {
       intent: {
@@ -33,7 +33,7 @@ export function ButtonOrLink({ intent, fullWidth, href, children, onClick, disab
 
   if (isLink) {
     return (
-      <Link className={buttonProps({ intent, fullWidth })} href={href}>
+      <Link className={buttonProps({ intent, fullWidth })} href={href} onClick={onClick}>
         {children}
       </Link>
     );

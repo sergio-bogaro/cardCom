@@ -4,7 +4,8 @@ import Layout from '../components/specific/layout';
 import { UserProvider } from '../contexts/auth';
 
 import type { AppProps } from 'next/app';
-function MyApp({ Component, pageProps }: AppProps) {
+
+export default function MyApp({ Component, pageProps }: AppProps) {
   return (
     <UserProvider>
       <Layout>
@@ -13,5 +14,3 @@ function MyApp({ Component, pageProps }: AppProps) {
     </UserProvider>
   );
 }
-
-export default MyApp;

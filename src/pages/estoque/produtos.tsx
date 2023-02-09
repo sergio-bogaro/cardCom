@@ -5,8 +5,6 @@ import * as AlertDialog from '@radix-ui/react-alert-dialog';
 import { ButtonOrLink } from '@ui/ButtonOrLink';
 import { DeleteItem } from '@ui/Modal/DeleteItem';
 
-import Header from '../../components/specific/Header';
-import SideBar from '../../components/specific/SideBar';
 import { Modal } from '../../components/UI/Modal/Modal';
 import Table from '../../components/UI/Table';
 import { deleteProducts, registerProducts, searchProducts } from '../../services/products';
@@ -27,7 +25,7 @@ const productsDataMask = [
   }
 ];
 
-const ListModels: NextPage = () => {
+const Products: NextPage = () => {
   const [productsData, setProductsData] = useState(productsDataMask);
   const [activeProductID, setActiveProductID] = useState('');
   const [newSearch, setNewSearch] = useState(false);
@@ -131,4 +129,4 @@ const ListModels: NextPage = () => {
   );
 };
 
-export default ListModels;
+export default Products;
