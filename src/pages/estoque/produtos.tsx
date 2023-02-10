@@ -6,7 +6,7 @@ import { ButtonOrLink } from '@ui/ButtonOrLink';
 import { DeleteItem } from '@ui/Modal/DeleteItem';
 
 import { Modal } from '../../components/UI/Modal/Modal';
-import Table from '../../components/UI/Table';
+import { Table } from '../../components/UI/Table';
 import { deleteProducts, registerProducts, searchProducts } from '../../services/products';
 import styles from '../../styles/alertDialogRadix.module.css';
 

@@ -2,7 +2,7 @@ import { GoPencil, GoPlus, GoTrashcan } from 'react-icons/go';
 
 import * as AlertDialog from '@radix-ui/react-alert-dialog';
 import { ButtonOrLink } from '@ui/ButtonOrLink';
-import Table from '@ui/Table';
+import { Table } from '@ui/Table';
 
 import styles from '../../styles/alertDialogRadix.module.css';
 

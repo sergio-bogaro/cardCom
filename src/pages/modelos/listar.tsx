@@ -8,10 +8,7 @@ import { ButtonOrLink } from '@ui/ButtonOrLink';
 import { Input } from '@ui/Input';
 import { CreateModelsModal } from '@ui/Modal/Models';
 
-import Header from '../../components/specific/Header';
-import SideBar from '../../components/specific/SideBar';
-import Table from '../../components/UI/Table';
-import { searchClient } from '../../services/clientes';
+import { Table } from '../../components/UI/Table';
 import { registerModel, searchModels } from '../../services/modelos';
 import dialogStyles from '../../styles/alertDialogRadix.module.css';
 import popoverStyles from '../../styles/radixPopover.module.css';

@@ -11,8 +11,6 @@ import { Loading } from '@ui/Loading';
 import { Modal } from '@ui/Modal/Modal';
 import Pagination from '@ui/Pagination';
 
-import Header from '../../components/specific/Header';
-import SideBar from '../../components/specific/SideBar';
 import { Table } from '../../components/UI/Table';
 import { registerClient, searchClient } from '../../services/clientes';
 import styles from '../../styles/radixPopover.module.css';

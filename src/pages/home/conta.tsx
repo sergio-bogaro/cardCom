@@ -3,8 +3,6 @@ import { useContext, useEffect, useState } from 'react';
 import { ButtonOrLink } from '@ui/ButtonOrLink';
 import { Input } from '@ui/Input';
 
-import Header from '../../components/specific/Header';
-import SideBar from '../../components/specific/SideBar';
 import { UserContext } from '../../contexts/auth';
 
 import type { NextPage } from 'next';
