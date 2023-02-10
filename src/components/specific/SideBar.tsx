@@ -36,15 +36,15 @@ const SideBar = () => {
             </ButtonOrLink>
 
             <DropDownButton icon="temple" title="Administração">
-              <ButtonOrLink intent={'transparent'} fullWidth href="/cliente/listar">
+              <ButtonOrLink intent={'transparent'} fullWidth href="/administracao/cadastros">
                 • Cadastros
               </ButtonOrLink>
 
-              <ButtonOrLink intent={'transparent'} fullWidth href="/cliente/saldo">
+              <ButtonOrLink intent={'transparent'} fullWidth href="/administracao/usuarios">
                 • Usuários
               </ButtonOrLink>
 
-              <ButtonOrLink intent={'transparent'} fullWidth href="/cliente/saldo">
+              <ButtonOrLink intent={'transparent'} fullWidth href="/administracao/niveis">
                 • Níveis
               </ButtonOrLink>
             </DropDownButton>

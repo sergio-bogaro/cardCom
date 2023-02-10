@@ -11,7 +11,7 @@ const Home: NextPage = () => {
   const user = useContext(UserContext);
 
   return (
-    <div>
+    <div className="rounded-lg bg-slate-900 p-6">
       <div className="flex flex-row">
         <div className="w-3/4">
           <p>Ola {user.nome}</p>
