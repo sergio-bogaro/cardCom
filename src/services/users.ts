@@ -30,13 +30,13 @@ const User = axios.create({
   }
 });
 
-export const searchUser = (filter: string, page: string) => {
+export const searchUsers = (filter: string, page: string) => {
   const searchProps = `search=${filter}&page=${page}`;
-  return User.get('/v1/users/search?' + searchProps);
+  return User.get('/v1/user/search?' + searchProps);
 };
 
 export const infoUser = () => {
-  return User.get('/v1/users/my-info');
+  return User.get('/v1/user/my-info');
 };
 
 export const savaUser = (data: saveUserProps) => {

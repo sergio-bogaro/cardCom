@@ -46,6 +46,8 @@ const Pagination = ({ totalPages, currentPage, handlePageChange }: paginationPro
       </div>
     );
   }
+
+  return null;
 };
 
 export default Pagination;

@@ -1,8 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { useState } from 'react';
-import { GoHome } from 'react-icons/go';
-import { HiArrowLeft, HiArrowRight } from 'react-icons/hi2';
+import { GoHome, GoThreeBars, GoX } from 'react-icons/go';
 import { MdHome, MdHomeFilled } from 'react-icons/md';
 
 import { ButtonOrLink } from '@ui/ButtonOrLink';
@@ -20,13 +19,13 @@ const SideBar = () => {
       <>
         <div className="fixed z-10 h-full w-1/4 min-w-[280px] max-w-[350px] overflow-auto rounded-lg bg-slate-900 p-5 text-gray-300 lg:static ">
           <div className="flex flex-col items-center gap-4">
-            <div className="flex items-center gap-2 border-2 border-transparent border-b-slate-800">
+            <div className=" flex items-center gap-2 border-2 border-transparent border-b-slate-800">
               <Link href="/home">
                 <Image className="mx-auto mb-6" src={logoImage} alt={'Logo do Site'} />
               </Link>
 
               <ButtonOrLink intent={'transparent'} onClick={() => setIsOpen(false)}>
-                <HiArrowLeft />
+                <GoX size={30} />
               </ButtonOrLink>
             </div>
 
@@ -201,7 +200,7 @@ const SideBar = () => {
   return (
     <div className="absolute text-white">
       <ButtonOrLink intent={'transparent'} onClick={() => setIsOpen(true)}>
-        <HiArrowRight />
+        <GoThreeBars size={25} />
       </ButtonOrLink>
     </div>
   );

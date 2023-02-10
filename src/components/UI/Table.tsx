@@ -12,7 +12,7 @@ interface tableProps {
   }>;
 }
 
-const Table = ({ data, collumns }: tableProps) => {
+export const Table = ({ data, collumns }: tableProps) => {
   return (
     <table className="mt-10  w-full text-left">
       <thead>
@@ -41,5 +41,3 @@ const Table = ({ data, collumns }: tableProps) => {
     </table>
   );
 };
-
-export default Table;
