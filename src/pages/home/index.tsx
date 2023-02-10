@@ -3,8 +3,6 @@ import { useContext, useEffect, useState } from 'react';
 
 import { Card } from '@ui/Card';
 
-import Header from '../../components/specific/Header';
-import SideBar from '../../components/specific/SideBar';
 import { UserContext } from '../../contexts/auth';
 
 const Home: NextPage = () => {
