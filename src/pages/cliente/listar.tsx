@@ -170,21 +170,22 @@ const ListClients: NextPage = () => {
 
   return (
     <div>
-      <div className="flex gap-4">
-        <ButtonOrLink intent={'secondary'} onClick={() => setIsOpen(true)}>
-          <GoPlus />
-          Cadastrar
-        </ButtonOrLink>
+      <div className="flex flex-col gap-4 lg:flex-row">
+        <div className="ml-auto flex gap-4 lg:ml-0">
+          <ButtonOrLink intent={'secondary'} onClick={() => setIsOpen(true)}>
+            <GoPlus />
+            Cadastrar
+          </ButtonOrLink>
 
-        <label
-          className="flex cursor-pointer items-center gap-2 rounded bg-green-700 px-4 py-2 hover:bg-green-800"
-          htmlFor="importButton">
-          <GoFile />
-          Importar
-          <input id="importButton" className="hidden" type={'file'} accept=".csv" onChange={clientByExcel} />
-        </label>
-
-        <form className="ml-auto flex w-1/2 gap-2" onSubmit={filterTable}>
+          <label
+            className="flex cursor-pointer items-center gap-2 rounded bg-green-700 px-4 py-2 hover:bg-green-800"
+            htmlFor="importButton">
+            <GoFile />
+            Importar
+            <input id="importButton" className="hidden" type={'file'} accept=".csv" onChange={clientByExcel} />
+          </label>
+        </div>
+        <form className="ml-auto flex w-full gap-2 lg:w-1/2" onSubmit={filterTable}>
           <Input
             label=""
             placeholder="Pesquisar Cliente"
@@ -196,6 +197,7 @@ const ListClients: NextPage = () => {
           </ButtonOrLink>
         </form>
       </div>
+
       <div className="overflow-auto">
         <Table data={clientData} collumns={collumns} />
       </div>

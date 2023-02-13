@@ -29,10 +29,10 @@ const Layout = ({ children }: props) => {
     <div className={`flex h-screen w-full p-2 ${nunito.className}`}>
       <SideBar />
 
-      <div className="flex w-full flex-col px-2 text-gray-300">
+      <main className="flex w-full flex-col px-2 text-gray-300">
         <Header />
         {children}
-      </div>
+      </main>
     </div>
   );
 };

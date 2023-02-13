@@ -84,7 +84,7 @@ const SideBar = () => {
             </DropDownButton>
 
             <DropDownButton icon="money" title="Comercial">
-              <ButtonOrLink intent={'transparent'} fullWidth href="/cliente/listar">
+              <ButtonOrLink intent={'transparent'} fullWidth href="/comercial/vendas">
                 • Vendas
               </ButtonOrLink>
             </DropDownButton>
