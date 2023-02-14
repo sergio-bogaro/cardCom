@@ -90,89 +90,93 @@ const SideBar = () => {
             </DropDownButton>
 
             <DropDownButton icon="cart" title="Pedidos">
-              <ButtonOrLink intent={'transparent'} fullWidth href="/cliente/listar">
-                • Fazer Pedido Manual
+              <ButtonOrLink intent={'transparent'} fullWidth href="/pedidos/criar-pedido">
+                • Fazer Pedido
               </ButtonOrLink>
 
-              <ButtonOrLink intent={'transparent'} fullWidth href="/cliente/saldo">
+              <ButtonOrLink intent={'transparent'} fullWidth href="/pedidos/cortes">
                 • Cortes Automaticos
               </ButtonOrLink>
 
-              <ButtonOrLink intent={'transparent'} fullWidth href="/cliente/saldo">
+              <ButtonOrLink intent={'transparent'} fullWidth href="/pedidos/solicitacoes">
                 • Listar Solicitações
               </ButtonOrLink>
 
-              <ButtonOrLink intent={'transparent'} fullWidth href="/cliente/saldo">
+              <ButtonOrLink intent={'transparent'} fullWidth href="/pedidos/listar">
                 • Listar Pedidos
               </ButtonOrLink>
 
-              <ButtonOrLink intent={'transparent'} fullWidth href="/cliente/saldo">
+              <ButtonOrLink intent={'transparent'} fullWidth href="/pedidos/pendentes">
+                • Pedidos Pendentes
+              </ButtonOrLink>
+
+              <ButtonOrLink intent={'transparent'} fullWidth href="/pedidos/ordem-producao">
                 • Ordens de Producao
               </ButtonOrLink>
 
-              <ButtonOrLink intent={'transparent'} fullWidth href="/cliente/saldo">
+              <ButtonOrLink intent={'transparent'} fullWidth href="/pedidos/grade-producao">
                 • Grade de Producao
               </ButtonOrLink>
             </DropDownButton>
 
             <DropDownButton icon="table" title="Expedição">
-              <ButtonOrLink intent={'transparent'} fullWidth href="/cliente/listar">
+              <ButtonOrLink intent={'transparent'} fullWidth href="/expedicao/entregas">
                 • Entregas
               </ButtonOrLink>
 
-              <ButtonOrLink intent={'transparent'} fullWidth href="/cliente/saldo">
+              <ButtonOrLink intent={'transparent'} fullWidth href="/expedicao/confirmar-entregas">
                 • Confirmar Entregas
               </ButtonOrLink>
 
-              <ButtonOrLink intent={'transparent'} fullWidth href="/cliente/saldo">
+              <ButtonOrLink intent={'transparent'} fullWidth href="/expedicao/expedir">
                 • Expedir
               </ButtonOrLink>
             </DropDownButton>
 
             <DropDownButton icon="box" title="Estoque e Produtos">
-              <ButtonOrLink intent={'transparent'} fullWidth href="/home/produtos">
+              <ButtonOrLink intent={'transparent'} fullWidth href="/estoque/meu-estoque">
                 • Meu Estoque
               </ButtonOrLink>
 
-              <ButtonOrLink intent={'transparent'} fullWidth href="/home/produtos">
+              <ButtonOrLink intent={'transparent'} fullWidth href="/estoque/transportadoras">
                 • Transportadoras
               </ButtonOrLink>
 
-              <ButtonOrLink intent={'transparent'} fullWidth href="/home/produtos">
+              <ButtonOrLink intent={'transparent'} fullWidth href="/estoque/fornecedores">
                 • Fornecedores
               </ButtonOrLink>
 
-              <ButtonOrLink intent={'transparent'} fullWidth href="/home/produtos">
+              <ButtonOrLink intent={'transparent'} fullWidth href="/estoque/ordem-compras">
                 • Ordem de compras
               </ButtonOrLink>
 
-              <ButtonOrLink intent={'transparent'} fullWidth href="/home/produtos">
+              <ButtonOrLink intent={'transparent'} fullWidth href="/estoque/requisicao-materiais">
                 • Requisição de materiais
               </ButtonOrLink>
 
-              <ButtonOrLink intent={'transparent'} fullWidth href="/home/produtos">
+              <ButtonOrLink intent={'transparent'} fullWidth href="/estoque/controle-estoque">
                 • Controle de estoque
               </ButtonOrLink>
 
-              <ButtonOrLink intent={'transparent'} fullWidth href="/home/produtos">
+              <ButtonOrLink intent={'transparent'} fullWidth href="/estoque/produtos">
                 • Produtos
               </ButtonOrLink>
             </DropDownButton>
 
             <DropDownButton icon="money" title="Financeiro">
-              <ButtonOrLink intent={'transparent'} fullWidth href="/home/produtos">
+              <ButtonOrLink intent={'transparent'} fullWidth href="/financeiro/vendas-pendentes">
                 • Vendas Pendentes
               </ButtonOrLink>
 
-              <ButtonOrLink intent={'transparent'} fullWidth href="/home/produtos">
+              <ButtonOrLink intent={'transparent'} fullWidth href="/financeiro/boletos">
                 • Boletos
               </ButtonOrLink>
 
-              <ButtonOrLink intent={'transparent'} fullWidth href="/home/produtos">
+              <ButtonOrLink intent={'transparent'} fullWidth href="/financeiro/liberar-pedidos">
                 • Librar Pedidos
               </ButtonOrLink>
 
-              <ButtonOrLink intent={'transparent'} fullWidth href="/home/produtos">
+              <ButtonOrLink intent={'transparent'} fullWidth href="/financeiro/contas">
                 • Contas
               </ButtonOrLink>
             </DropDownButton>

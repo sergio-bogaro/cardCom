@@ -10,7 +10,7 @@ import { Table } from '@ui/Table';
 import type { NextPage } from 'next';
 const tableColumns = [{ heading: 'Nome', value: 'nome' }];
 
-const PedidosPendentes: NextPage = () => {
+const MeuEstoque: NextPage = () => {
   const [data, setData] = useState([]);
   const [searchFilter, setSearchFilter] = useState('');
   const [newSearch, setNewSearch] = useState(false);
@@ -57,4 +57,4 @@ const PedidosPendentes: NextPage = () => {
   );
 };
 
-export default PedidosPendentes;
+export default MeuEstoque;
