@@ -57,20 +57,26 @@ const Users: NextPage = () => {
   }, [newSearch]);
 
   return (
-    <div className="mx-auto flex w-11/12 flex-col gap-4 rounded p-5">
-      <div className="flex justify-between">
-        <h2 className="text-xl font-bold">Lista de Usuários</h2>
-        <ButtonOrLink intent={'secondary'}>
-          <GoPlus /> Novo Usuário
-        </ButtonOrLink>
+    <div>
+      <div className="flex flex-col gap-4 lg:flex-row">
+        <div className="ml-auto flex gap-4 lg:ml-0">
+          <ButtonOrLink intent={'secondary'}>
+            <GoPlus />
+            Novo Usuário
+          </ButtonOrLink>
+        </div>
+        <form className="ml-auto flex w-full gap-2 lg:w-1/2" onSubmit={filterTable}>
+          <Input
+            label=""
+            placeholder="Pesquisar Usuário"
+            value={searchFilter}
+            onChange={(e) => setSearchFilter(e.target.value)}
+          />
+          <ButtonOrLink intent={'secondary'} type={'submit'}>
+            <HiOutlineMagnifyingGlass />
+          </ButtonOrLink>
+        </form>
       </div>
-
-      <form className="flex gap-2" onSubmit={filterTable}>
-        <Input label="" placeholder="Pesquisar Usuário" value={searchFilter} onChange={(e) => setSearchFilter(e.target.value)} />
-        <ButtonOrLink intent={'secondary'} type={'submit'}>
-          <HiOutlineMagnifyingGlass />
-        </ButtonOrLink>
-      </form>
 
       <Table collumns={tableColumns} data={userData} />
       <Loading isLoading={isLoading} />
