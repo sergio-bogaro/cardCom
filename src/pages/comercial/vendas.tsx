@@ -31,11 +31,16 @@ const Vendas: NextPage = () => {
 
   return (
     <div className="mx-auto flex w-11/12 flex-col gap-4 rounded p-5">
+      <div className="flex justify-between">
+        <h2 className="text-2xl font-bold lg:block">Vendas</h2>
+        <h2 className="text-2xl font-bold">Total: R$: 54,500</h2>
+      </div>
+
       <div className="flex flex-col gap-4 lg:flex-row">
         <div className="ml-auto flex gap-4 lg:ml-0">
           <ButtonOrLink intent={'secondary'}>
             <GoPlus />
-            Cadastrar
+            Nova Venda
           </ButtonOrLink>
         </div>
         <form className="ml-auto flex w-full gap-2 lg:w-1/2" onSubmit={filterTable}>

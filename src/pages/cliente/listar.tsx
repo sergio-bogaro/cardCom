@@ -12,6 +12,7 @@ import { Modal } from '@ui/Modal/Modal';
 import Pagination from '@ui/Pagination';
 
 import { Table } from '../../components/UI/Table';
+import { clientSchema } from '../../schemas/client';
 import { registerClient, searchClient } from '../../services/clientes';
 import styles from '../../styles/radixPopover.module.css';
 import { clientDataType } from '../../types/client';
@@ -51,9 +52,10 @@ const ListClients: NextPage = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [searchFilter, setSearchFilter] = useState('');
 
-  const createClientForm = useFormik({
+  const { values, errors, touched, handleSubmit, handleChange, resetForm } = useFormik({
     enableReinitialize: true,
     initialValues: clientFormValue,
+    validationSchema: clientSchema,
     onSubmit: (data) => {
       console.log(data);
       registerClient(data)
@@ -67,7 +69,7 @@ const ListClients: NextPage = () => {
           };
 
           setClientData([tableWithNewClient, ...clientData]);
-          createClientForm.resetForm();
+          resetForm();
           setIsOpen(false);
         })
         .catch((err) => console.log(err));
@@ -168,6 +170,8 @@ const ListClients: NextPage = () => {
       .catch((err) => console.log(err));
   }, [newSearch === true]);
 
+  console.log(errors);
+
   return (
     <div>
       <div className="flex flex-col gap-4 lg:flex-row">
@@ -205,33 +209,33 @@ const ListClients: NextPage = () => {
       <Loading isLoading={loadingData} />
 
       <Modal title="Cadastar Cliente" isOpen={isOpen} closeModal={() => setIsOpen(false)}>
-        <form onSubmit={createClientForm.handleSubmit} className="flex flex-col gap-2">
+        <form onSubmit={handleSubmit} className="flex flex-col gap-2">
           <Input
+            validator={errors.nome && touched.nome ? true : false}
             label="Nome"
             name="nome"
-            value={createClientForm.values.nome}
-            onChange={createClientForm.handleChange}
-            required
+            value={values.nome}
+            onChange={handleChange}
           />
 
           <Input
+            validator={errors.cnpj && touched.cnpj ? true : false}
             label="CNPJ"
             name="cnpj"
-            value={createClientForm.values.cnpj}
-            onChange={createClientForm.handleChange}
-            required
+            value={values.cnpj}
+            onChange={handleChange}
           />
 
           <Input
+            validator={errors.razao_social && touched.razao_social ? true : false}
             label="Razão Social"
             name="razao_social"
-            value={createClientForm.values.razao_social}
-            onChange={createClientForm.handleChange}
-            required
+            value={values.razao_social}
+            onChange={handleChange}
           />
 
           <div className="m-auto">
-            <ButtonOrLink intent={'secondary'} type="submit">
+            <ButtonOrLink intent={'secondary'} type={'submit'}>
               Salvar Cliente
             </ButtonOrLink>
           </div>

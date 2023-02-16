@@ -8,6 +8,10 @@ const inputProps = cva('p-2 rounded outline-none w-full', {
     styles: {
       primary: 'bg-gray-600',
       secondary: 'bg-transparent'
+    },
+    validator: {
+      true: 'border border-red-700',
+      false: ''
     }
   },
   defaultVariants: {
@@ -20,14 +24,14 @@ interface Props extends InputProps, VariantProps<typeof inputProps> {
   fullWidth?: boolean;
 }
 
-export function Input({ styles, fullWidth = true, label, ...Props }: Props) {
+export function Input({ styles, validator, fullWidth = true, label, ...Props }: Props) {
   const wrapperWidht = fullWidth ? 'w-full' : 'w-fit';
 
   return (
     <div className={wrapperWidht}>
       <p>{label}</p>
 
-      <input className={inputProps({ styles })} {...Props} />
+      <input className={inputProps({ styles, validator })} {...Props} />
     </div>
   );
 }
