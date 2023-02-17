@@ -26,7 +26,7 @@ const Layout = ({ children }: props) => {
   if (loginScreen) return <>{children}</>;
 
   return (
-    <div className={`flex h-screen w-full p-2 ${nunito.className}`}>
+    <div className={`flex h-screen w-full ${nunito.className}`}>
       <SideBar />
 
       <main className="flex w-full flex-col px-2 text-gray-300">

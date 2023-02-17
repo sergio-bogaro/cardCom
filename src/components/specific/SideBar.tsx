@@ -14,199 +14,195 @@ import logoImage from '../../../public/logo.png';
 const SideBar = () => {
   const [isOpen, setIsOpen] = useState(true);
 
-  if (isOpen)
-    return (
-      <>
-        <div className="fixed z-10 h-full w-1/4 min-w-[280px] max-w-[350px] overflow-auto rounded-lg bg-slate-900 p-5 text-gray-300 lg:static ">
-          <div className="flex flex-col items-center gap-4">
-            <div className=" flex items-center gap-2 border-2 border-transparent border-b-slate-800">
-              <Link href="/home">
-                <Image className="mx-auto mb-6" src={logoImage} alt={'Logo do Site'} />
-              </Link>
+  return (
+    <>
+      <div
+        className={`top-0 left-0 z-20 h-full min-w-[300px] overflow-auto bg-slate-900  p-5 text-white duration-300 ease-in-out
+        ${isOpen ? 'fixed translate-x-0 lg:relative' : 'fixed -translate-x-full'}`}>
+        <div className="flex flex-col items-center gap-4">
+          <div className="flex w-full justify-center border-2 border-transparent border-b-slate-800">
+            <Link href="/home">
+              <Image className="mb-6" src={logoImage} alt={'Logo do Site'} />
+            </Link>
+            <button className="absolute right-0 top-0 p-2">
+              <GoX size={25} onClick={() => setIsOpen(false)} />
+            </button>
+          </div>
 
-              <ButtonOrLink intent={'transparent'} onClick={() => setIsOpen(false)}>
-                <GoX size={30} />
-              </ButtonOrLink>
-            </div>
+          <ButtonOrLink href="/home" fullWidth>
+            <MdHomeFilled size={22} />
+            Pagina Inicial
+          </ButtonOrLink>
 
-            <ButtonOrLink href="/home" fullWidth>
-              <MdHomeFilled size={22} />
-              Pagina Inicial
+          <DropDownButton icon="temple" title="Administração">
+            <ButtonOrLink intent={'transparent'} fullWidth href="/administracao/cadastros">
+              • Cadastros
             </ButtonOrLink>
 
-            <DropDownButton icon="temple" title="Administração">
-              <ButtonOrLink intent={'transparent'} fullWidth href="/administracao/cadastros">
-                • Cadastros
-              </ButtonOrLink>
+            <ButtonOrLink intent={'transparent'} fullWidth href="/administracao/usuarios">
+              • Usuários
+            </ButtonOrLink>
 
-              <ButtonOrLink intent={'transparent'} fullWidth href="/administracao/usuarios">
-                • Usuários
-              </ButtonOrLink>
+            <ButtonOrLink intent={'transparent'} fullWidth href="/administracao/niveis">
+              • Níveis
+            </ButtonOrLink>
+          </DropDownButton>
 
-              <ButtonOrLink intent={'transparent'} fullWidth href="/administracao/niveis">
-                • Níveis
-              </ButtonOrLink>
-            </DropDownButton>
+          <DropDownButton title="Auto Atendimento">
+            <ButtonOrLink intent={'transparent'} fullWidth href="/cliente/listar">
+              • Fazer Pedido
+            </ButtonOrLink>
+          </DropDownButton>
 
-            <DropDownButton title="Auto Atendimento">
-              <ButtonOrLink intent={'transparent'} fullWidth href="/cliente/listar">
-                • Fazer Pedido
-              </ButtonOrLink>
-            </DropDownButton>
+          <DropDownButton icon="people" title="Clientes e Pedidos">
+            <ButtonOrLink intent={'transparent'} fullWidth href="/cliente/listar">
+              • Zerar Saldo
+            </ButtonOrLink>
+          </DropDownButton>
 
-            <DropDownButton icon="people" title="Clientes e Pedidos">
-              <ButtonOrLink intent={'transparent'} fullWidth href="/cliente/listar">
-                • Zerar Saldo
-              </ButtonOrLink>
-            </DropDownButton>
+          <DropDownButton icon="person" title="Clientes">
+            <ButtonOrLink intent={'transparent'} fullWidth href="/cliente/listar">
+              • Listar Clientes
+            </ButtonOrLink>
+            <CreateClientModal text="• Cadastrar Cliente" buttonIntent={'transparent'} />
 
-            <DropDownButton icon="person" title="Clientes">
-              <ButtonOrLink intent={'transparent'} fullWidth href="/cliente/listar">
-                • Listar Clientes
-              </ButtonOrLink>
-              <CreateClientModal text="• Cadastrar Cliente" buttonIntent={'transparent'} />
+            <ButtonOrLink intent={'transparent'} fullWidth href="/cliente/saldo">
+              • Saldo dos Clientes
+            </ButtonOrLink>
+          </DropDownButton>
 
-              <ButtonOrLink intent={'transparent'} fullWidth href="/cliente/saldo">
-                • Saldo dos Clientes
-              </ButtonOrLink>
-            </DropDownButton>
+          <DropDownButton icon="person" title="Modelos">
+            <ButtonOrLink intent={'transparent'} fullWidth href="/modelos/listar">
+              • Listar Modelos
+            </ButtonOrLink>
 
-            <DropDownButton icon="person" title="Modelos">
-              <ButtonOrLink intent={'transparent'} fullWidth href="/modelos/listar">
-                • Listar Modelos
-              </ButtonOrLink>
+            <CreateModelsModal text="• Cadastrar Modelo" />
 
-              <CreateModelsModal text="• Cadastrar Modelo" />
+            <ButtonOrLink intent={'transparent'} fullWidth href="/modelos/saldo">
+              • Saldo dos Modelos
+            </ButtonOrLink>
+          </DropDownButton>
 
-              <ButtonOrLink intent={'transparent'} fullWidth href="/modelos/saldo">
-                • Saldo dos Modelos
-              </ButtonOrLink>
-            </DropDownButton>
+          <DropDownButton icon="money" title="Comercial">
+            <ButtonOrLink intent={'transparent'} fullWidth href="/comercial/vendas">
+              • Vendas
+            </ButtonOrLink>
+          </DropDownButton>
 
-            <DropDownButton icon="money" title="Comercial">
-              <ButtonOrLink intent={'transparent'} fullWidth href="/comercial/vendas">
-                • Vendas
-              </ButtonOrLink>
-            </DropDownButton>
+          <DropDownButton icon="cart" title="Pedidos">
+            <ButtonOrLink intent={'transparent'} fullWidth href="/pedidos/criar-pedido">
+              • Fazer Pedido
+            </ButtonOrLink>
 
-            <DropDownButton icon="cart" title="Pedidos">
-              <ButtonOrLink intent={'transparent'} fullWidth href="/pedidos/criar-pedido">
-                • Fazer Pedido
-              </ButtonOrLink>
+            <ButtonOrLink intent={'transparent'} fullWidth href="/pedidos/cortes">
+              • Cortes Automaticos
+            </ButtonOrLink>
 
-              <ButtonOrLink intent={'transparent'} fullWidth href="/pedidos/cortes">
-                • Cortes Automaticos
-              </ButtonOrLink>
+            <ButtonOrLink intent={'transparent'} fullWidth href="/pedidos/solicitacoes">
+              • Listar Solicitações
+            </ButtonOrLink>
 
-              <ButtonOrLink intent={'transparent'} fullWidth href="/pedidos/solicitacoes">
-                • Listar Solicitações
-              </ButtonOrLink>
+            <ButtonOrLink intent={'transparent'} fullWidth href="/pedidos/listar">
+              • Listar Pedidos
+            </ButtonOrLink>
 
-              <ButtonOrLink intent={'transparent'} fullWidth href="/pedidos/listar">
-                • Listar Pedidos
-              </ButtonOrLink>
+            <ButtonOrLink intent={'transparent'} fullWidth href="/pedidos/pendentes">
+              • Pedidos Pendentes
+            </ButtonOrLink>
 
-              <ButtonOrLink intent={'transparent'} fullWidth href="/pedidos/pendentes">
-                • Pedidos Pendentes
-              </ButtonOrLink>
+            <ButtonOrLink intent={'transparent'} fullWidth href="/pedidos/ordem-producao">
+              • Ordens de Producao
+            </ButtonOrLink>
 
-              <ButtonOrLink intent={'transparent'} fullWidth href="/pedidos/ordem-producao">
-                • Ordens de Producao
-              </ButtonOrLink>
+            <ButtonOrLink intent={'transparent'} fullWidth href="/pedidos/grade-producao">
+              • Grade de Producao
+            </ButtonOrLink>
+          </DropDownButton>
 
-              <ButtonOrLink intent={'transparent'} fullWidth href="/pedidos/grade-producao">
-                • Grade de Producao
-              </ButtonOrLink>
-            </DropDownButton>
+          <DropDownButton icon="table" title="Expedição">
+            <ButtonOrLink intent={'transparent'} fullWidth href="/expedicao/entregas">
+              • Entregas
+            </ButtonOrLink>
 
-            <DropDownButton icon="table" title="Expedição">
-              <ButtonOrLink intent={'transparent'} fullWidth href="/expedicao/entregas">
-                • Entregas
-              </ButtonOrLink>
+            <ButtonOrLink intent={'transparent'} fullWidth href="/expedicao/confirmar-entregas">
+              • Confirmar Entregas
+            </ButtonOrLink>
 
-              <ButtonOrLink intent={'transparent'} fullWidth href="/expedicao/confirmar-entregas">
-                • Confirmar Entregas
-              </ButtonOrLink>
+            <ButtonOrLink intent={'transparent'} fullWidth href="/expedicao/expedir">
+              • Expedir
+            </ButtonOrLink>
+          </DropDownButton>
 
-              <ButtonOrLink intent={'transparent'} fullWidth href="/expedicao/expedir">
-                • Expedir
-              </ButtonOrLink>
-            </DropDownButton>
+          <DropDownButton icon="box" title="Estoque e Produtos">
+            <ButtonOrLink intent={'transparent'} fullWidth href="/estoque/meu-estoque">
+              • Meu Estoque
+            </ButtonOrLink>
 
-            <DropDownButton icon="box" title="Estoque e Produtos">
-              <ButtonOrLink intent={'transparent'} fullWidth href="/estoque/meu-estoque">
-                • Meu Estoque
-              </ButtonOrLink>
+            <ButtonOrLink intent={'transparent'} fullWidth href="/estoque/transportadoras">
+              • Transportadoras
+            </ButtonOrLink>
 
-              <ButtonOrLink intent={'transparent'} fullWidth href="/estoque/transportadoras">
-                • Transportadoras
-              </ButtonOrLink>
+            <ButtonOrLink intent={'transparent'} fullWidth href="/estoque/fornecedores">
+              • Fornecedores
+            </ButtonOrLink>
 
-              <ButtonOrLink intent={'transparent'} fullWidth href="/estoque/fornecedores">
-                • Fornecedores
-              </ButtonOrLink>
+            <ButtonOrLink intent={'transparent'} fullWidth href="/estoque/ordem-compras">
+              • Ordem de compras
+            </ButtonOrLink>
 
-              <ButtonOrLink intent={'transparent'} fullWidth href="/estoque/ordem-compras">
-                • Ordem de compras
-              </ButtonOrLink>
+            <ButtonOrLink intent={'transparent'} fullWidth href="/estoque/requisicao-materiais">
+              • Requisição de materiais
+            </ButtonOrLink>
 
-              <ButtonOrLink intent={'transparent'} fullWidth href="/estoque/requisicao-materiais">
-                • Requisição de materiais
-              </ButtonOrLink>
+            <ButtonOrLink intent={'transparent'} fullWidth href="/estoque/controle-estoque">
+              • Controle de estoque
+            </ButtonOrLink>
 
-              <ButtonOrLink intent={'transparent'} fullWidth href="/estoque/controle-estoque">
-                • Controle de estoque
-              </ButtonOrLink>
+            <ButtonOrLink intent={'transparent'} fullWidth href="/estoque/produtos">
+              • Produtos
+            </ButtonOrLink>
+          </DropDownButton>
 
-              <ButtonOrLink intent={'transparent'} fullWidth href="/estoque/produtos">
-                • Produtos
-              </ButtonOrLink>
-            </DropDownButton>
+          <DropDownButton icon="money" title="Financeiro">
+            <ButtonOrLink intent={'transparent'} fullWidth href="/financeiro/vendas-pendentes">
+              • Vendas Pendentes
+            </ButtonOrLink>
 
-            <DropDownButton icon="money" title="Financeiro">
-              <ButtonOrLink intent={'transparent'} fullWidth href="/financeiro/vendas-pendentes">
-                • Vendas Pendentes
-              </ButtonOrLink>
+            <ButtonOrLink intent={'transparent'} fullWidth href="/financeiro/boletos">
+              • Boletos
+            </ButtonOrLink>
 
-              <ButtonOrLink intent={'transparent'} fullWidth href="/financeiro/boletos">
-                • Boletos
-              </ButtonOrLink>
+            <ButtonOrLink intent={'transparent'} fullWidth href="/financeiro/liberar-pedidos">
+              • Librar Pedidos
+            </ButtonOrLink>
 
-              <ButtonOrLink intent={'transparent'} fullWidth href="/financeiro/liberar-pedidos">
-                • Librar Pedidos
-              </ButtonOrLink>
+            <ButtonOrLink intent={'transparent'} fullWidth href="/financeiro/contas">
+              • Contas
+            </ButtonOrLink>
+          </DropDownButton>
 
-              <ButtonOrLink intent={'transparent'} fullWidth href="/financeiro/contas">
-                • Contas
-              </ButtonOrLink>
-            </DropDownButton>
+          <DropDownButton title="Relatórios">
+            <ButtonOrLink intent={'transparent'} fullWidth href="/home/produtos">
+              • Produção
+            </ButtonOrLink>
+          </DropDownButton>
 
-            <DropDownButton title="Relatórios">
-              <ButtonOrLink intent={'transparent'} fullWidth href="/home/produtos">
-                • Produção
-              </ButtonOrLink>
-            </DropDownButton>
-
-            <DropDownButton icon="tool" title="Ferramentas">
-              <ButtonOrLink intent={'transparent'} fullWidth href="/home/produtos">
-                • WhatsApp
-              </ButtonOrLink>
-            </DropDownButton>
-          </div>
+          <DropDownButton icon="tool" title="Ferramentas">
+            <ButtonOrLink intent={'transparent'} fullWidth href="/home/produtos">
+              • WhatsApp
+            </ButtonOrLink>
+          </DropDownButton>
         </div>
-        <div
-          id="wrapper"
-          className="fixed inset-0 flex items-start justify-center bg-black bg-opacity-25 text-black backdrop-blur-sm lg:hidden"
-        />
-      </>
-    );
+      </div>
 
-  return (
-    <div className="absolute text-white">
-      <ButtonOrLink intent={'transparent'} onClick={() => setIsOpen(true)}>
-        <GoThreeBars size={25} />
-      </ButtonOrLink>
-    </div>
+      {!isOpen ? (
+        <button className="absolute p-4 text-white" onClick={() => setIsOpen(true)}>
+          <GoThreeBars size={25} />
+        </button>
+      ) : (
+        ''
+      )}
+    </>
   );
 };
 

@@ -9,8 +9,8 @@ import { ButtonOrLink } from '@ui/ButtonOrLink';
 
 interface dropDownProps {
   icon?: 'person' | 'people' | 'box' | 'money' | 'tool' | 'cart' | 'temple' | 'table';
-  children: ReactNode;
   title: string;
+  children: ReactNode;
 }
 
 export const DropDownButton = ({ children, title, icon }: dropDownProps) => {
