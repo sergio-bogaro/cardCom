@@ -69,7 +69,7 @@ const Products: NextPage = () => {
                 <GoPencil />
               </ButtonOrLink>
 
-              <ButtonOrLink intent={'danger'}>
+              <ButtonOrLink intent={'danger'} onClick={() => openDeleteModal(product.id)}>
                 <GoTrashcan />
               </ButtonOrLink>
 
