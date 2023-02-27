@@ -17,8 +17,8 @@ export function Modal({ isOpen, title, closeModal, children }: modalProps) {
   return (
     <div
       id="wrapper"
-      className="fixed inset-0 flex items-start justify-center bg-black bg-opacity-25 text-black backdrop-blur-sm">
-      <div className="mt-64 w-1/2 max-w-[800px]">
+      className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-25 text-black backdrop-blur-sm">
+      <div className="w-1/2 max-w-[800px]">
         <div className="rounded-lg bg-slate-900 text-white">
           <div className="flex p-4 text-2xl">
             <h2>{title}</h2>

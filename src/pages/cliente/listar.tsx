@@ -1,6 +1,6 @@
 import { useFormik } from 'formik';
 import Papa from 'papaparse';
-import { ChangeEvent, FormEvent, MouseEvent, useEffect, useState } from 'react';
+import { ChangeEvent, FormEvent, useEffect, useState } from 'react';
 import { GoFile, GoHome, GoPencil, GoPerson, GoPlus } from 'react-icons/go';
 import { HiOutlineMagnifyingGlass } from 'react-icons/hi2';
 
@@ -176,7 +176,12 @@ const ListClients: NextPage = () => {
     <div>
       <div className="flex flex-col gap-4 lg:flex-row">
         <div className="ml-auto flex gap-4 lg:ml-0">
-          <ButtonOrLink intent={'secondary'} onClick={() => setIsOpen(true)}>
+          <ButtonOrLink
+            intent={'secondary'}
+            onClick={() => {
+              setIsOpen(true);
+              setClientFormValue(clientFormValues);
+            }}>
             <GoPlus />
             Cadastrar
           </ButtonOrLink>

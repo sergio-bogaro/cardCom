@@ -1,13 +1,11 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { useState } from 'react';
-import { GoHome, GoThreeBars, GoX } from 'react-icons/go';
-import { MdHome, MdHomeFilled } from 'react-icons/md';
+import { GoThreeBars, GoX } from 'react-icons/go';
+import { MdHomeFilled } from 'react-icons/md';
 
 import { ButtonOrLink } from '@ui/ButtonOrLink';
 import { DropDownButton } from '@ui/DropDownButton';
-import { CreateClientModal } from '@ui/Modal/CreateClient';
-import { CreateModelsModal } from '@ui/Modal/Models';
 
 import logoImage from '../../../public/logo.png';
 
@@ -15,19 +13,21 @@ const SideBar = () => {
   const [isOpen, setIsOpen] = useState(true);
 
   return (
-    <>
+    <main>
       <div
         className={`top-0 left-0 z-20 h-full min-w-[300px] overflow-auto bg-slate-900  p-5 text-white duration-300 ease-in-out
         ${isOpen ? 'fixed translate-x-0 lg:relative' : 'fixed -translate-x-full'}`}>
-        <div className="flex flex-col items-center gap-4">
-          <div className="flex w-full justify-center border-2 border-transparent border-b-slate-800">
+        <div className="flex flex-col items-center gap-2">
+          <div className="flex w-full justify-center ">
             <Link href="/home">
-              <Image className="mb-6" src={logoImage} alt={'Logo do Site'} />
+              <Image src={logoImage} alt={'Logo do Site'} />
             </Link>
             <button className="absolute right-0 top-0 p-2">
               <GoX size={25} onClick={() => setIsOpen(false)} />
             </button>
           </div>
+
+          <div className="my-4 w-full border-2 border-transparent border-b-slate-800" />
 
           <ButtonOrLink href="/home" fullWidth>
             <MdHomeFilled size={22} />
@@ -64,7 +64,6 @@ const SideBar = () => {
             <ButtonOrLink intent={'transparent'} fullWidth href="/cliente/listar">
               • Listar Clientes
             </ButtonOrLink>
-            <CreateClientModal text="• Cadastrar Cliente" buttonIntent={'transparent'} />
 
             <ButtonOrLink intent={'transparent'} fullWidth href="/cliente/saldo">
               • Saldo dos Clientes
@@ -75,8 +74,6 @@ const SideBar = () => {
             <ButtonOrLink intent={'transparent'} fullWidth href="/modelos/listar">
               • Listar Modelos
             </ButtonOrLink>
-
-            <CreateModelsModal text="• Cadastrar Modelo" />
 
             <ButtonOrLink intent={'transparent'} fullWidth href="/modelos/saldo">
               • Saldo dos Modelos
@@ -202,7 +199,7 @@ const SideBar = () => {
       ) : (
         ''
       )}
-    </>
+    </main>
   );
 };
 

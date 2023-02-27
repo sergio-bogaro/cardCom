@@ -41,17 +41,17 @@ export const DropDownButton = ({ children, title, icon }: dropDownProps) => {
     setModalOpen(!modalOpen);
   }
 
-  const modalContent = modalOpen ? <div className="flex w-full flex-col gap-2 py-2">{children}</div> : null;
-
   return (
     <div className="w-full">
       <ButtonOrLink intent={'primary'} fullWidth onClick={handleMenuOpen}>
         {buttonIcon}
         {title}
-        <div className="ml-auto">{modalOpen ? <RiArrowDropUpFill size={22} /> : <RiArrowDropDownFill size={22} />}</div>
+        <div className={`ml-auto duration-300 ease-in-out ${modalOpen ? '-rotate-180' : 'rotate-0'}`}>
+          <RiArrowDropDownFill size={22} />
+        </div>
       </ButtonOrLink>
 
-      {modalContent}
+      <div className={`-z-10 flex w-full flex-col gap-2 py-2 ${modalOpen ? '' : 'hidden'}`}>{children}</div>
     </div>
   );
 };

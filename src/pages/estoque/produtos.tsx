@@ -8,7 +8,6 @@ import { DeleteItem } from '@ui/Modal/DeleteItem';
 import { Modal } from '../../components/UI/Modal/Modal';
 import { Table } from '../../components/UI/Table';
 import { deleteProducts, registerProducts, searchProducts } from '../../services/products';
-import styles from '../../styles/alertDialogRadix.module.css';
 
 import type { NextPage } from 'next';
 const collumns = [
@@ -70,31 +69,9 @@ const Products: NextPage = () => {
                 <GoPencil />
               </ButtonOrLink>
 
-              <AlertDialog.Root>
-                <AlertDialog.Trigger asChild>
-                  <ButtonOrLink intent={'danger'}>
-                    <GoTrashcan />
-                  </ButtonOrLink>
-                </AlertDialog.Trigger>
-                <AlertDialog.Portal>
-                  <AlertDialog.Overlay className={styles.AlertDialogOverlay} />
-                  <AlertDialog.Content className={styles.AlertDialogContent}>
-                    <p>Tem certeza disso ?</p>
-                    <p>Essa ação não pode ser desfeita</p>
-
-                    <div className="mt-5 flex justify-around">
-                      <AlertDialog.Cancel asChild>
-                        <ButtonOrLink intent={'primary'}>Cancelar</ButtonOrLink>
-                      </AlertDialog.Cancel>
-                      <AlertDialog.Action asChild>
-                        <ButtonOrLink intent={'danger'} onClick={() => deleteProduct(product.id)}>
-                          Apagar
-                        </ButtonOrLink>
-                      </AlertDialog.Action>
-                    </div>
-                  </AlertDialog.Content>
-                </AlertDialog.Portal>
-              </AlertDialog.Root>
+              <ButtonOrLink intent={'danger'}>
+                <GoTrashcan />
+              </ButtonOrLink>
 
               <ButtonOrLink intent={'secondary'}>
                 <GoPlus />
