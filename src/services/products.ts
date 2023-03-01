@@ -15,7 +15,7 @@ const transactionClient = axios.create({
 });
 
 export const searchProducts = (filter: string) => {
-  return transactionClient.get('/v1/produto/search?');
+  return transactionClient.get(`/v1/produto/search?search=${filter}`);
 };
 
 export const infoProducts = (prductID: string) => {

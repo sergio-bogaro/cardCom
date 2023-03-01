@@ -57,18 +57,18 @@ const ListClients: NextPage = () => {
     initialValues: clientFormValue,
     validationSchema: clientSchema,
     onSubmit: (data) => {
-      console.log(data);
       registerClient(data)
         .then((res) => {
-          const data = res.data.data;
-          const tableWithNewClient = {
-            nome: data.nome,
-            razao_social: data.razao_social,
-            cnpj: data.cnpj,
-            opcoes: clientTableOption(data.id)
+          const responseData = res.data.data;
+          const clientNew = {
+            nome: responseData.nome,
+            razao_social: responseData.razao_social,
+            cnpj: responseData.cnpj,
+            opcoes: clientTableOption(responseData.id)
           };
+          const newTable = [clientNew, ...clientData.filter((client) => client.cnpj != data.cnpj)];
 
-          setClientData([tableWithNewClient, ...clientData]);
+          setClientData(newTable);
           resetForm();
           setIsOpen(false);
         })
@@ -76,8 +76,8 @@ const ListClients: NextPage = () => {
     }
   });
 
-  const filterTable = (e: FormEvent) => {
-    e.preventDefault();
+  const filterTable = (event: FormEvent) => {
+    event.preventDefault();
     setNewSearch(true);
   };
 
