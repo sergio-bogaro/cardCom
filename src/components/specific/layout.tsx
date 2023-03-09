@@ -18,7 +18,7 @@ const nunito = Nunito({
 const Layout = ({ children }: props) => {
   const [userLogged, setUserLogged] = useState(false);
 
-   useEffect(() => {
+  useEffect(() => {
     const accessToken = localStorage.getItem('accessTokenCAP');
     const logged = accessToken ? true : false;
     setUserLogged(logged);
@@ -26,7 +26,7 @@ const Layout = ({ children }: props) => {
     if (!logged) {
       router.push('/login');
     }
-  },[] );
+  }, []);
 
   if (!userLogged) return <>{children}</>;
 

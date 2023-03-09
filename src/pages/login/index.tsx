@@ -13,6 +13,10 @@ const Login: NextPage = () => {
   const router = useRouter();
   const [errorMessage, setErrorMessage] = useState('');
 
+  const logged = typeof window !== 'undefined' ? localStorage.getItem('accessTokenCAP') : '';
+
+  if (logged) router.push('/home');
+
   const formik = useFormik({
     initialValues: {
       email: '',
@@ -24,21 +28,11 @@ const Login: NextPage = () => {
           const userData = JSON.stringify(response.data.usuario);
           localStorage.setItem('userDataCAP', userData);
           localStorage.setItem('accessTokenCAP', response.data.token);
-          router.push('/home');
+          window.location.reload();
         })
         .catch((error) => setErrorMessage(error.response.data.mensagem));
     }
   });
-
-  const onSubmit = (data: any) =>
-    login(data)
-      .then((response) => {
-        const userData = JSON.stringify(response.data.usuario);
-        localStorage.setItem('userDataCAP', userData);
-        localStorage.setItem('accessTokenCAP', response.data.token);
-        router.push('/home');
-      })
-      .catch((error) => setErrorMessage(error.response.data.mensagem));
 
   return (
     <div>

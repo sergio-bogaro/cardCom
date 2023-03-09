@@ -170,8 +170,6 @@ const ListClients: NextPage = () => {
       .catch((err) => console.log(err));
   }, [newSearch === true]);
 
-  console.log(errors);
-
   return (
     <div>
       <div className="flex flex-col gap-4 lg:flex-row">

@@ -5,9 +5,8 @@ interface registerClientProps {
   cnpj: string;
   razao_social: string;
 }
-
 const baseURL = 'https://api-capp.worktabsystems.com.br/api';
-const acessToken = typeof window !== "undefined" ? localStorage.getItem('accessTokenCAP') : ''
+const acessToken = typeof window !== 'undefined' ? localStorage.getItem('accessTokenCAP') : '';
 const transactionClient = axios.create({
   baseURL: baseURL,
   // timeout: 5000,
