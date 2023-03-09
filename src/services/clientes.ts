@@ -7,15 +7,14 @@ interface registerClientProps {
 }
 
 const baseURL = 'https://api-capp.worktabsystems.com.br/api';
-const accessToken = typeof window !== 'undefined' ? localStorage.getItem('accessTokenCAP') : null;
-
+const acessToken = typeof window !== "undefined" ? localStorage.getItem('accessTokenCAP') : ''
 const transactionClient = axios.create({
   baseURL: baseURL,
   // timeout: 5000,
   headers: {
     // 'X-Requested-With': 'XMLHttpRequest',
     // 'Content-type': 'application/json',
-    Authorization: 'Bearer ' + accessToken,
+    Authorization: 'Bearer ' + acessToken,
     Accept: 'application/json'
   }
 });
