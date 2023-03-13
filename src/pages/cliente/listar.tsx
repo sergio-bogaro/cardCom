@@ -1,6 +1,6 @@
 import { useFormik } from 'formik';
 import Papa from 'papaparse';
-import { ChangeEvent, FormEvent, useEffect, useState } from 'react';
+import { ChangeEvent, FormEvent, useContext, useEffect, useState } from 'react';
 import { GoFile, GoHome, GoPencil, GoPerson, GoPlus } from 'react-icons/go';
 import { HiOutlineMagnifyingGlass } from 'react-icons/hi2';
 
@@ -12,8 +12,8 @@ import { Modal } from '@ui/Modal/Modal';
 import Pagination from '@ui/Pagination';
 
 import { Table } from '../../components/UI/Table';
+import { UserContext } from '../../contexts/auth';
 import { clientSchema } from '../../schemas/client';
-import { registerClient, searchClient } from '../../services/clientes';
 import styles from '../../styles/radixPopover.module.css';
 import { clientDataType } from '../../types/client';
 
@@ -52,13 +52,24 @@ const ListClients: NextPage = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [searchFilter, setSearchFilter] = useState('');
 
+  const { transactionClient } = useContext(UserContext);
+
+  const searchClient = (filter: string, page: string) => {
+    const searchProps = `search=${filter}&page=${page}`;
+    return transactionClient.get('/v1/cliente/search?' + searchProps);
+  };
+
+  const registerClient = (data: any) => {
+    return transactionClient.post('v1/cliente/save', data);
+  };
+
   const { values, errors, touched, handleSubmit, handleChange, resetForm } = useFormik({
     enableReinitialize: true,
     initialValues: clientFormValue,
     validationSchema: clientSchema,
     onSubmit: (data) => {
       registerClient(data)
-        .then((res) => {
+        .then((res: any) => {
           const responseData = res.data.data;
           const clientNew = {
             nome: responseData.nome,
@@ -72,7 +83,7 @@ const ListClients: NextPage = () => {
           resetForm();
           setIsOpen(false);
         })
-        .catch((err) => console.log(err));
+        .catch((err: any) => console.log(err));
     }
   });
 
@@ -155,7 +166,7 @@ const ListClients: NextPage = () => {
     setLoadingData(true);
     const page = (currentPage - 1).toString();
     searchClient(searchFilter, page)
-      .then((res) => {
+      .then((res: any) => {
         setTotalPages(res.data.pages);
         const table = res.data.data.map((client: clientDataType) => ({
           nome: client.nome,
@@ -167,7 +178,7 @@ const ListClients: NextPage = () => {
         setClientData(table);
         setLoadingData(false);
       })
-      .catch((err) => console.log(err));
+      .catch((err: any) => console.log(err));
   }, [newSearch === true]);
 
   return (

@@ -14,12 +14,13 @@ interface headerProps {
 
 const Header = ({ title = '' }: headerProps) => {
   const router = useRouter();
-  const user = useContext(UserContext);
+  const { userData, setUserData } = useContext(UserContext);
 
   const logout = () => {
     localStorage.removeItem('accessTokenCAP');
     localStorage.removeItem('userDataCAP');
-    router.push('/');
+    setUserData('');
+    router.push('/login');
   };
   return (
     <div className="mb-4 flex border-2 border-solid border-transparent border-b-slate-900 p-4">
@@ -50,16 +51,20 @@ const Header = ({ title = '' }: headerProps) => {
                     <GoPerson size={40} color={'gray'} />
                   </div>
                   <div className="mb-2">
-                    <p>{user.nome}</p>
-                    <p>{user.email}</p>
+                    <p>{userData.nome}</p>
+                    <p>{userData.email}</p>
                   </div>
                 </div>
-                <ButtonOrLink intent={'transparent'} href="/home/conta" fullWidth>
-                  Minha Conta
-                </ButtonOrLink>
-                <ButtonOrLink intent={'transparent'} fullWidth onClick={logout}>
-                  Sair
-                </ButtonOrLink>
+                <Popover.Close asChild>
+                  <ButtonOrLink intent={'transparent'} href="/home/conta" fullWidth>
+                    Minha Conta
+                  </ButtonOrLink>
+                </Popover.Close>
+                <Popover.Close asChild>
+                  <ButtonOrLink intent={'transparent'} fullWidth onClick={logout}>
+                    Sair
+                  </ButtonOrLink>
+                </Popover.Close>
               </div>
 
               <Popover.Arrow className={styles.PopoverArrow} />

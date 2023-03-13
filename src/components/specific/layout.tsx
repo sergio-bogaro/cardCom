@@ -1,8 +1,9 @@
 import router from 'next/router';
-import { ReactNode, useEffect, useState } from 'react';
+import { ReactNode, useContext, useEffect, useState } from 'react';
 
 import { Nunito } from '@next/font/google';
 
+import { UserContext } from '../../contexts/auth';
 import Header from './Header';
 import SideBar from './SideBar';
 
@@ -16,19 +17,14 @@ const nunito = Nunito({
 });
 
 const Layout = ({ children }: props) => {
-  const [userLogged, setUserLogged] = useState(false);
+  const { userData } = useContext(UserContext);
 
   useEffect(() => {
-    const accessToken = localStorage.getItem('accessTokenCAP');
-    const logged = accessToken ? true : false;
-    setUserLogged(logged);
-
-    if (!logged) {
-      router.push('/login');
-    }
+    if (userData) router.push('/home');
+    else router.push('/login');
   }, []);
 
-  if (!userLogged) return <>{children}</>;
+  if (!userData) return <>{children}</>;
 
   return (
     <div className={`flex h-screen w-full ${nunito.className}`}>

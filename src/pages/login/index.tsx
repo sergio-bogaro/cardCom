@@ -1,21 +1,23 @@
 import { useFormik } from 'formik';
+import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 
 import { ButtonOrLink } from '@ui/ButtonOrLink';
 import { Checkbox } from '@ui/CheckBox';
 import { Input } from '@ui/Input';
 
-import { login } from '../../services/auth';
+import { UserContext } from '../../contexts/auth';
 
 import type { NextPage } from 'next';
 const Login: NextPage = () => {
   const router = useRouter();
   const [errorMessage, setErrorMessage] = useState('');
+  const { setUserData, transactionClient } = useContext(UserContext);
 
-  const logged = typeof window !== 'undefined' ? localStorage.getItem('accessTokenCAP') : '';
-
-  if (logged) router.push('/home');
+  const login = (data: any) => {
+    return transactionClient.post('/login', data);
+  };
 
   const formik = useFormik({
     initialValues: {
@@ -24,13 +26,14 @@ const Login: NextPage = () => {
     },
     onSubmit: (data) => {
       login(data)
-        .then((response) => {
+        .then((response: any) => {
           const userData = JSON.stringify(response.data.usuario);
           localStorage.setItem('userDataCAP', userData);
           localStorage.setItem('accessTokenCAP', response.data.token);
-          window.location.reload();
+          setUserData(response.data.usuario);
+          router.push('/home');
         })
-        .catch((error) => setErrorMessage(error.response.data.mensagem));
+        .catch((error: any) => setErrorMessage(error.response.data.mensagem));
     }
   });
 
@@ -39,7 +42,7 @@ const Login: NextPage = () => {
       <main className="flex h-screen justify-center bg-slate-900">
         <div className="m-auto flex w-128 flex-col rounded-xl bg-slate-800 p-8">
           <form onSubmit={formik.handleSubmit} className="flex flex-col gap-3  text-slate-200">
-            <Input name="email" label="Email" value={formik.values.email} onChange={formik.handleChange} required />
+            <Input name="email" label="Email" value={formik.values.email} onChange={formik.handleChange} type="email" required />
 
             <Input
               name="password"
@@ -52,9 +55,9 @@ const Login: NextPage = () => {
 
             <div className="flex items-center justify-between">
               <Checkbox label="Lembrar-me" />
-              <a className="text-blue-500" href="">
+              <Link className="text-blue-500" href="/login/esqueci-minha-senha">
                 Esqueceu sua Senha ?
-              </a>
+              </Link>
             </div>
             <div className="ml-auto">
               <ButtonOrLink intent={'secondary'} type="submit">
