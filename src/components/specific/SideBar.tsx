@@ -17,9 +17,9 @@ const SideBar = () => {
       <div
         className={`top-0 h-full min-w-[300px] overflow-auto bg-slate-900 p-5 text-white  duration-300 ease-in-out scrollbar-thin scrollbar-track-inherit scrollbar-thumb-slate-700
         ${isOpen ? 'fixed translate-x-0 lg:relative' : 'fixed -translate-x-full'}`}>
-        <div className="flex flex-col items-center gap-2">
+        <div className="flex flex-col items-center gap-4">
           <div className="flex w-full justify-center ">
-            <Link href="/home">
+            <Link href="/home" passHref>
               <Image src={logoImage} alt={'Logo do Site'} />
             </Link>
             <button className="absolute right-0 top-0 p-2">

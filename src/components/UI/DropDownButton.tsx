@@ -51,7 +51,12 @@ export const DropDownButton = ({ children, title, icon }: dropDownProps) => {
         </div>
       </ButtonOrLink>
 
-      <div className={`-z-10 flex w-full flex-col gap-2 py-2 ${modalOpen ? '' : 'hidden'}`}>{children}</div>
+      <div
+        className={`flex w-full flex-col gap-2 overflow-hidden transition-height duration-500 ease-in-out ${
+          modalOpen ? 'max-h-96' : ' max-h-0 '
+        }`}>
+        {children}
+      </div>
     </div>
   );
 };

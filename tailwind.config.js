@@ -11,6 +11,9 @@ module.exports = {
         'slate' : {
           850: '#1B2636'
         }
+      },
+      transitionProperty: {
+        'height': 'max-height'
       }
     },
   },
