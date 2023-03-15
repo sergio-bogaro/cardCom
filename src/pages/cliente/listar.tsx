@@ -73,10 +73,11 @@ const ListClients: NextPage = () => {
       registerClient(data)
         .then((res: any) => {
           const responseData = res.data.data;
+
           const clientNew = {
             nome: responseData.nome,
             razao_social: responseData.razao_social,
-            cnpj: responseData.cnpj,
+            cnpj: responseData.cnpj.replace(/^(\d{2})(\d{3})(\d{3})(\d{4})(\d{2})/, '$1.$2.$3/$4-$5'),
             opcoes: clientTableOption(responseData.id)
           };
           const newTable = [clientNew, ...clientData.filter((client) => client.cnpj != data.cnpj)];
@@ -135,7 +136,7 @@ const ListClients: NextPage = () => {
                     const activeClientData = {
                       id: client.id,
                       nome: client.nome,
-                      cnpj: client.cnpj,
+                      cnpj: client.cnpj.replace(/^(\d{2})(\d{3})(\d{3})(\d{4})(\d{2})/, '$1.$2.$3/$4-$5'),
                       razao_social: client.razao_social
                     };
                     setClientFormValue(activeClientData);
@@ -177,7 +178,7 @@ const ListClients: NextPage = () => {
         const table = res.data.data.map((client: clientDataType) => ({
           nome: client.nome,
           razao_social: client.razao_social,
-          cnpj: client.cnpj,
+          cnpj: client.cnpj.replace(/^(\d{2})(\d{3})(\d{3})(\d{4})(\d{2})/, '$1.$2.$3/$4-$5'),
           opcoes: clientTableOption(client)
         }));
 
