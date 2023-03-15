@@ -68,6 +68,8 @@ const ListClients: NextPage = () => {
     initialValues: clientFormValue,
     validationSchema: clientSchema,
     onSubmit: (data) => {
+      data.cnpj = normalizeValues(data.cnpj);
+
       registerClient(data)
         .then((res: any) => {
           const responseData = res.data.data;
@@ -86,6 +88,10 @@ const ListClients: NextPage = () => {
         .catch((err: any) => console.log(err));
     }
   });
+
+  function normalizeValues(value: string) {
+    return value.replace(/[^0-9]/g, '');
+  }
 
   const filterTable = (event: FormEvent) => {
     event.preventDefault();
@@ -225,7 +231,7 @@ const ListClients: NextPage = () => {
       <Modal title="Cadastar Cliente" isOpen={isOpen} closeModal={() => setIsOpen(false)}>
         <form onSubmit={handleSubmit} className="flex flex-col gap-2">
           <Input
-            validator={errors.nome && touched.nome ? true : false}
+            error={errors.nome && touched.nome ? errors.nome : ''}
             label="Nome"
             name="nome"
             value={values.nome}
@@ -233,7 +239,8 @@ const ListClients: NextPage = () => {
           />
 
           <Input
-            validator={errors.cnpj && touched.cnpj ? true : false}
+            error={errors.cnpj && touched.cnpj ? errors.cnpj : ''}
+            mask="99.999.999/9999-99"
             label="CNPJ"
             name="cnpj"
             value={values.cnpj}
@@ -241,7 +248,7 @@ const ListClients: NextPage = () => {
           />
 
           <Input
-            validator={errors.razao_social && touched.razao_social ? true : false}
+            error={errors.razao_social && touched.razao_social ? errors.razao_social : ''}
             label="Razão Social"
             name="razao_social"
             value={values.razao_social}

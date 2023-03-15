@@ -52,8 +52,8 @@ export const DropDownButton = ({ children, title, icon }: dropDownProps) => {
       </ButtonOrLink>
 
       <div
-        className={`flex w-full flex-col gap-2 overflow-hidden transition-height duration-500 ease-in-out ${
-          modalOpen ? 'max-h-96' : ' max-h-0 '
+        className={`flex w-full flex-col gap-2 overflow-hidden transition-height duration-300 ease-in-out ${
+          modalOpen ? 'max-h-96' : ' max-h-0'
         }`}>
         {children}
       </div>
