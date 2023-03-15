@@ -42,7 +42,7 @@ export const DropDownButton = ({ children, title, icon }: dropDownProps) => {
   }
 
   return (
-    <div className="w-full">
+    <div className="flex w-full flex-col gap-2">
       <ButtonOrLink intent={'primary'} fullWidth onClick={handleMenuOpen}>
         {buttonIcon}
         {title}

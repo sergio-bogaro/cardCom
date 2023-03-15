@@ -17,7 +17,7 @@ const SideBar = () => {
       <div
         className={`top-0 h-full min-w-[300px] overflow-auto bg-slate-900 p-5 text-white  duration-300 ease-in-out scrollbar-thin scrollbar-track-inherit scrollbar-thumb-slate-700
         ${isOpen ? 'fixed translate-x-0 lg:relative' : 'fixed -translate-x-full'}`}>
-        <div className="flex flex-col items-center gap-4">
+        <div className="flex flex-col items-center gap-2">
           <div className="flex w-full justify-center ">
             <Link href="/home" passHref>
               <Image src={logoImage} alt={'Logo do Site'} />
@@ -29,10 +29,12 @@ const SideBar = () => {
 
           <div className="my-4 w-full border-2 border-transparent border-b-slate-800" />
 
-          <ButtonOrLink href="/home" fullWidth>
-            <MdHomeFilled size={22} />
-            Pagina Inicial
-          </ButtonOrLink>
+          <div className="mb-2 w-full">
+            <ButtonOrLink href="/home" fullWidth>
+              <MdHomeFilled size={22} />
+              Pagina Inicial
+            </ButtonOrLink>
+          </div>
 
           <DropDownButton icon="temple" title="Administração">
             <ButtonOrLink intent={'transparent'} fullWidth href="/administracao/cadastros">
