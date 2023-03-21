@@ -10,7 +10,7 @@ module.exports = {
       },
       colors: {
         'slate' : {
-          850: '#1B2636'
+          850: '#1A2032'
         }
       },
       transitionProperty: {

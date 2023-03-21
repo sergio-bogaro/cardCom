@@ -43,17 +43,18 @@ export const DropDownButton = ({ children, title, icon }: dropDownProps) => {
 
   return (
     <div className="flex w-full flex-col gap-2">
-      <ButtonOrLink intent={'transparent'} fullWidth onClick={handleMenuOpen}>
-        {buttonIcon}
-        {title}
-        <div className={`ml-auto duration-300 ease-in-out ${modalOpen ? '-rotate-180' : 'rotate-0'}`}>
-          <RiArrowDropDownFill size={22} />
-        </div>
-      </ButtonOrLink>
-
+      <div className={`${modalOpen ? 'bg-gray-600' : ''}`}>
+        <ButtonOrLink intent={'transparent'} fullWidth onClick={handleMenuOpen}>
+          {buttonIcon}
+          {title}
+          <div className={`ml-auto duration-300 ease-in-out ${modalOpen ? '-rotate-180' : 'rotate-0'}`}>
+            <RiArrowDropDownFill size={22} />
+          </div>
+        </ButtonOrLink>
+      </div>
       <div
         className={`flex w-full flex-col gap-2 overflow-hidden transition-height duration-300 ease-in-out ${
-          modalOpen ? 'max-h-96' : ' max-h-0'
+          modalOpen ? 'max-h-96 shadow-lg' : ' max-h-0'
         }`}>
         {children}
       </div>

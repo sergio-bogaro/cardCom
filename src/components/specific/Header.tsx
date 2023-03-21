@@ -7,12 +7,9 @@ import { ButtonOrLink } from '@ui/ButtonOrLink';
 
 import { UserContext } from '../../contexts/auth';
 import styles from '../../styles/radixPopover.module.css';
+import { ThemeSwitcher } from './ThemeSwitcher';
 
-interface headerProps {
-  title?: string;
-}
-
-const Header = ({ title = '' }: headerProps) => {
+const Header = () => {
   const router = useRouter();
   const { userData, setUserData } = useContext(UserContext);
 
@@ -23,13 +20,13 @@ const Header = ({ title = '' }: headerProps) => {
     router.push('/login');
   };
   return (
-    <div className="mb-4 flex border-2 border-solid border-transparent border-b-slate-900 p-4">
-      <h2 className="text-2xl">{title}</h2>
+    <div className="h-20 mb-4 flex p-4 bg-gray-300 dark:bg-slate-900">
+      <div className="ml-auto flex gap-4 items-center">
+        <ThemeSwitcher />
 
-      <div className="ml-auto flex gap-4">
         <Popover.Root>
           <Popover.Trigger>
-            <GoBell size={30} color={'gray'} />
+            <GoBell size={30} className="text-black dark:text-gray-300" />
           </Popover.Trigger>
           <Popover.Portal>
             <Popover.Content className={styles.PopoverContent} sideOffset={5} align="end">
@@ -41,12 +38,12 @@ const Header = ({ title = '' }: headerProps) => {
 
         <Popover.Root>
           <Popover.Trigger>
-            <GoPerson size={30} color={'gray'} />
+            <GoPerson size={30} className="text-black dark:text-gray-300" />
           </Popover.Trigger>
           <Popover.Portal>
             <Popover.Content className={styles.PopoverContent} sideOffset={5} align="end">
-              <div className="flex flex-col pb-2">
-                <div className="mb-2 flex flex-row gap-3 border border-transparent border-b-gray-600 p-2">
+              <div className="flex flex-col pb-2 text-black">
+                <div className="mb-2 flex flex-row gap-3 p-2">
                   <div className="h-fit rounded bg-gray-300 p-1">
                     <GoPerson size={40} color={'gray'} />
                   </div>

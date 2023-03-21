@@ -15,20 +15,19 @@ const SideBar = () => {
   return (
     <main>
       <div
-        className={`top-0 h-full min-w-[300px] overflow-auto bg-gray-300 p-5 text-black transition-colors duration-300 ease-in-out
-        scrollbar-thin scrollbar-track-inherit scrollbar-thumb-slate-700 dark:bg-slate-900 dark:text-white
+        className={`top-0 h-full min-w-[300px] overflow-auto bg-gray-300 text-black transition-all duration-300 ease-in-out
+        scrollbar-thin scrollbar-track-inherit scrollbar-thumb-slate-700 dark:bg-slate-850 dark:text-white
         ${isOpen ? 'fixed translate-x-0 lg:relative' : 'fixed -translate-x-full'}`}>
-        <div className="flex flex-col items-center gap-2">
-          <div className="flex w-full justify-center ">
-            <Link href="/home" passHref>
-              <Image src={logoImage} alt={'Logo do Site'} />
+        <div className="flex flex-col items-center gap-2 ">
+          <div className="flex h-20 w-full justify-around bg-gray-300 shadow-lg dark:bg-slate-900">
+            <Link href="/home">
+              <Image src={logoImage} alt={'Logo do Site'} height={60} />
             </Link>
+
             <button className="absolute right-0 top-0 p-2">
               <GoX size={25} onClick={() => setIsOpen(false)} />
             </button>
           </div>
-
-          <div className="my-4 w-full border-2 border-transparent border-b-slate-800" />
 
           <div className="mb-2 w-full">
             <ButtonOrLink intent={'transparent'} href="/home" fullWidth>
@@ -196,7 +195,7 @@ const SideBar = () => {
       </div>
 
       {!isOpen ? (
-        <button className="absolute p-4 text-white" onClick={() => setIsOpen(true)}>
+        <button className="absolute p-4 text-white z-10" onClick={() => setIsOpen(true)}>
           <GoThreeBars size={25} />
         </button>
       ) : (
