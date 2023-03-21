@@ -15,7 +15,8 @@ const SideBar = () => {
   return (
     <main>
       <div
-        className={`top-0 h-full min-w-[300px] overflow-auto bg-slate-900 p-5 text-white  duration-300 ease-in-out scrollbar-thin scrollbar-track-inherit scrollbar-thumb-slate-700
+        className={`top-0 h-full min-w-[300px] overflow-auto bg-gray-300 p-5 text-black transition-colors duration-300 ease-in-out
+        scrollbar-thin scrollbar-track-inherit scrollbar-thumb-slate-700 dark:bg-slate-900 dark:text-white
         ${isOpen ? 'fixed translate-x-0 lg:relative' : 'fixed -translate-x-full'}`}>
         <div className="flex flex-col items-center gap-2">
           <div className="flex w-full justify-center ">
@@ -30,7 +31,7 @@ const SideBar = () => {
           <div className="my-4 w-full border-2 border-transparent border-b-slate-800" />
 
           <div className="mb-2 w-full">
-            <ButtonOrLink href="/home" fullWidth>
+            <ButtonOrLink intent={'transparent'} href="/home" fullWidth>
               <MdHomeFilled size={22} />
               Pagina Inicial
             </ButtonOrLink>

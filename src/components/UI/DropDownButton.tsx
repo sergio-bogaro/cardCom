@@ -43,7 +43,7 @@ export const DropDownButton = ({ children, title, icon }: dropDownProps) => {
 
   return (
     <div className="flex w-full flex-col gap-2">
-      <ButtonOrLink intent={'primary'} fullWidth onClick={handleMenuOpen}>
+      <ButtonOrLink intent={'transparent'} fullWidth onClick={handleMenuOpen}>
         {buttonIcon}
         {title}
         <div className={`ml-auto duration-300 ease-in-out ${modalOpen ? '-rotate-180' : 'rotate-0'}`}>

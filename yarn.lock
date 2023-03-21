@@ -3777,6 +3777,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"next-themes@npm:^0.2.1":
+  version: 0.2.1
+  resolution: "next-themes@npm:0.2.1"
+  peerDependencies:
+    next: "*"
+    react: "*"
+    react-dom: "*"
+  checksum: ebc248b956138e73436c4ed0a0f0a877a0a48a33156db577029b8b8469e48b5c777d61abf2baeb75953378febea74e067a4869ff90b4a3e94fce123289b862ba
+  languageName: node
+  linkType: hard
+
 next@latest:
   version: 13.0.5
   resolution: "next@npm:13.0.5"
@@ -4255,24 +4266,6 @@ next@latest:
   languageName: node
   linkType: hard
 
-"prettier-plugin-tailwindcss@npm:^0.2.1":
-  version: 0.2.1
-  resolution: "prettier-plugin-tailwindcss@npm:0.2.1"
-  peerDependencies:
-    prettier: ">=2.2.0"
-  checksum: 5a04b26f50baea552aaff938b6413bf66d0050c3ca5a0d5bc432a7efc8f8e4ba194a23b1aabd4d39d36228afaf368ba2bce24ebb87f4972459a3679eff6942e8
-  languageName: node
-  linkType: hard
-
-"prettier@npm:^2.8.2":
-  version: 2.8.2
-  resolution: "prettier@npm:2.8.2"
-  bin:
-    prettier: bin-prettier.js
-  checksum: 740c56c2128d587d656ea1dde9bc9c3503dfc94db4f3ac387259215eeb2e216680bdad9d18a0c9feecc6b42cfa188d6fa777df4c36c1d00cedd4199074fbfbd2
-  languageName: node
-  linkType: hard
-
 "promise-inflight@npm:^1.0.1":
   version: 1.0.1
   resolution: "promise-inflight@npm:1.0.1"
@@ -4644,10 +4637,9 @@ next@latest:
     eslint-plugin-react: ^7.31.11
     formik: ^2.2.9
     next: latest
+    next-themes: ^0.2.1
     papaparse: ^5.3.2
     postcss: ^8.4.18
-    prettier: ^2.8.2
-    prettier-plugin-tailwindcss: ^0.2.1
     react: latest
     react-dom: latest
     react-icons: ^4.7.1
