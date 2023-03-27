@@ -14,7 +14,8 @@ module.exports = {
         }
       },
       transitionProperty: {
-        'height': 'max-height'
+        'height': 'max-height',
+        'width' : 'max-width'
       }
     },
   },

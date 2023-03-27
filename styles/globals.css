@@ -4,5 +4,5 @@
 
 
 body {
-    @apply bg-white m-0 p-0 dark:bg-slate-800 transition-colors text-black dark:text-gray-300;
+    @apply bg-gray-200 m-0 p-0 dark:bg-slate-800 transition-colors text-gray-900 dark:text-gray-300;
 }

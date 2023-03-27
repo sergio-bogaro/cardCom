@@ -18,20 +18,16 @@ export const ThemeSwitcher = () => {
   if (!mounted) return null;
 
   return (
-    <div className="w-16 h-10 flex items-center p-3">
-      <div className={`w-3/4 ease-in-out duration-150 ${currentTheme === 'light' ? 'translate-x-0' : 'translate-x-full'} `}>
-        <div>
-          {currentTheme === 'dark' ? (
-            <button onClick={() => setTheme('light')}>
-              <BsSunFill size={20} color={'white'} />
-            </button>
-          ) : (
-            <button onClick={() => setTheme('dark')}>
-              <BsMoonStarsFill size={20} color={'black'} />
-            </button>
-          )}
-        </div>
-      </div>
+    <div>
+      {currentTheme === 'dark' ? (
+        <button onClick={() => setTheme('light')}>
+          <BsSunFill size={30} color={'white'} />
+        </button>
+      ) : (
+        <button onClick={() => setTheme('dark')}>
+          <BsMoonStarsFill size={30} color={'black'} />
+        </button>
+      )}
     </div>
   );
 };

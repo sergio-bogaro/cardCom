@@ -25,7 +25,7 @@ export const Table = ({ data, collumns }: tableProps) => {
         </tr>
       </thead>
 
-      <tbody className="border border-solid border-slate-700 bg-slate-900">
+      <tbody className="border border-solid border-gray-700 bg-gray-500 dark:border-slate-700 dark:bg-slate-850">
         {data.map((item: any, index: any) => (
           <tr key={'TableLine' + index} className="border border-b border-slate-700">
             {collumns.map((collumnItem, index) => (
