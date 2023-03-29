@@ -9,11 +9,11 @@ interface cardProps {
 export const Card = ({ cardTitle, quantity = '' }: cardProps) => {
   return (
     <Link href="" passHref>
-      <div className="flex h-20 min-w-[200px] items-center gap-4 rounded-lg border-[1px] border-solid border-gray-600 p-4 text-gray-400 hover:bg-gray-600">
+      <div className="flex h-20 min-w-[200px] items-center gap-4 rounded-lg border border-solid p-4 border-gray-900 dark:border-gray-600  hover:bg-gray-600">
         <GoHome size={60} />
         <div>
           <p className="text-xs font-normal">{cardTitle}</p>
-          <strong className="text-2xl text-gray-200">{quantity}</strong>
+          <strong className="text-2xl">{quantity}</strong>
         </div>
       </div>
     </Link>

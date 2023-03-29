@@ -19,7 +19,7 @@ const SideBar = () => {
         scrollbar-thin scrollbar-track-inherit scrollbar-thumb-slate-700 dark:bg-slate-800 shadow-2xl
         ${isOpen ? 'translate-x-0 lg:relative' : 'fixed -translate-x-full'}`}>
         <div className="flex flex-col items-center gap-2 ">
-          <div className="flex h-16 w-full justify-around p-2 bg-gray-500 shadow-sm dark:bg-slate-900 dark:shadow-slate-850">
+          <div className="flex h-16 w-full justify-around p-2 bg-gray-600 shadow-lg dark:bg-slate-900 dark:shadow-slate-850">
             <Link className="-mt-1" href="/home">
               <Image src={logoImage} alt={'Logo do Site'} height={45} />
             </Link>

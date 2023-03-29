@@ -20,7 +20,7 @@ const Header = () => {
     router.push('/login');
   };
   return (
-    <div className="h-16 mb-4 flex p-4 justify-end gap-3 items-center bg-gray-400 dark:bg-slate-850 shadow-sm dark:shadow-slate-850">
+    <div className="h-16 mb-4 flex p-4 justify-end gap-3 items-center bg-gray-500 dark:bg-slate-850 shadow-lg dark:shadow-slate-900">
       <ThemeSwitcher />
 
       <Popover.Root>
