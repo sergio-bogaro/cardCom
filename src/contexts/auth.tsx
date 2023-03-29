@@ -1,4 +1,5 @@
 import axios from 'axios';
+import router from 'next/router';
 import { createContext, ReactNode, useEffect, useState } from 'react';
 
 const userDataType = {
@@ -30,8 +31,7 @@ export function UserProvider({ children }: userProviderProps) {
     if (data) {
       const dataTransform = JSON.parse(data);
       setUserData(dataTransform);
-      console.log(dataTransform);
-    }
+    } else router.push('/login');
   }, []);
 
   const transactionClient = axios.create({
