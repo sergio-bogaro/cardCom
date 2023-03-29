@@ -6,6 +6,7 @@ import { useContext, useState } from 'react';
 import { ButtonOrLink } from '@ui/ButtonOrLink';
 import { Checkbox } from '@ui/CheckBox';
 import { Input } from '@ui/Input';
+import { Password } from '@ui/Password';
 
 import { UserContext } from '../../contexts/auth';
 
@@ -44,7 +45,7 @@ const Login: NextPage = () => {
           <form onSubmit={formik.handleSubmit} className="flex flex-col gap-3  text-slate-200">
             <Input name="email" label="Email" value={formik.values.email} onChange={formik.handleChange} type="email" required />
 
-            <Input
+            <Password
               name="password"
               label="Senha"
               value={formik.values.password}

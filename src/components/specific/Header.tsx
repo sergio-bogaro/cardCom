@@ -20,12 +20,12 @@ const Header = () => {
     router.push('/login');
   };
   return (
-    <div className="h-20 mb-4 flex p-4 justify-end gap-3 items-center shadow-sm dark:shadow-slate-850">
+    <div className="h-16 mb-4 flex p-4 justify-end gap-3 items-center bg-gray-400 dark:bg-slate-850 shadow-sm dark:shadow-slate-850">
       <ThemeSwitcher />
 
       <Popover.Root>
         <Popover.Trigger>
-          <GoBell size={30} className="text-black dark:text-gray-300" />
+          <GoBell size={24} />
         </Popover.Trigger>
         <Popover.Portal>
           <Popover.Content className={styles.PopoverContent} sideOffset={5} align="end">
@@ -37,7 +37,7 @@ const Header = () => {
 
       <Popover.Root>
         <Popover.Trigger>
-          <GoPerson size={30} className="text-black dark:text-gray-300" />
+          <GoPerson size={24} />
         </Popover.Trigger>
         <Popover.Portal>
           <Popover.Content className={styles.PopoverContent} sideOffset={5} align="end">

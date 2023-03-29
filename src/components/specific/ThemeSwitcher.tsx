@@ -1,6 +1,6 @@
 import { useTheme } from 'next-themes';
 import { useEffect, useState } from 'react';
-import { BsMoonStarsFill, BsSunFill } from 'react-icons/bs';
+import { HiMoon, HiSun } from 'react-icons/hi';
 
 export const ThemeSwitcher = () => {
   const { systemTheme, theme, setTheme } = useTheme();
@@ -21,11 +21,11 @@ export const ThemeSwitcher = () => {
     <div>
       {currentTheme === 'dark' ? (
         <button onClick={() => setTheme('light')}>
-          <BsSunFill size={30} color={'white'} />
+          <HiSun size={24} color={'white'} />
         </button>
       ) : (
         <button onClick={() => setTheme('dark')}>
-          <BsMoonStarsFill size={30} color={'black'} />
+          <HiMoon size={24} color={'black'} />
         </button>
       )}
     </div>

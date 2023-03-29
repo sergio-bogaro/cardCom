@@ -3,7 +3,7 @@ import { AiFillTool } from 'react-icons/ai';
 import { FaBoxes, FaDollarSign, FaShoppingCart, FaTable } from 'react-icons/fa';
 import { GiGreekTemple } from 'react-icons/gi';
 import { MdPeople, MdPerson } from 'react-icons/md';
-import { RiArrowDropDownFill, RiArrowDropUpFill } from 'react-icons/ri';
+import { RiArrowDropDownFill } from 'react-icons/ri';
 
 import { ButtonOrLink } from '@ui/ButtonOrLink';
 

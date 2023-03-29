@@ -26,9 +26,11 @@ export function UserProvider({ children }: userProviderProps) {
 
   useEffect(() => {
     const data = localStorage.getItem('userDataCAP');
+
     if (data) {
       const dataTransform = JSON.parse(data);
       setUserData(dataTransform);
+      console.log(dataTransform);
     }
   }, []);
 

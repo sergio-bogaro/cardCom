@@ -20,6 +20,7 @@ const Layout = ({ children }: props) => {
   const { userData } = useContext(UserContext);
 
   useEffect(() => {
+    console.log(userData);
     if (userData) router.push('/home');
     else router.push('/login');
   }, []);
