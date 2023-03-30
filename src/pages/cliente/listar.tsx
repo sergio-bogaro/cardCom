@@ -19,9 +19,9 @@ import { clientDataType } from '../../types/client';
 
 import type { NextPage } from 'next';
 const collumns = [
-  { heading: 'Nome', value: 'nome' },
-  { heading: 'Razão Social', value: 'razao_social' },
-  { heading: 'CNPJ', value: 'cnpj' },
+  { heading: 'Nome', value: 'nome', width: 300 },
+  { heading: 'Razão Social', value: 'razao_social', width: 200 },
+  { heading: 'CNPJ', value: 'cnpj', width: 200 },
   { heading: '', value: 'opcoes' }
 ];
 

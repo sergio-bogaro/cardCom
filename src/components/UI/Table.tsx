@@ -3,6 +3,7 @@ import { ReactNode } from 'react';
 interface collumnProps {
   heading: string;
   value: string;
+  width?: number;
 }
 
 interface tableProps {
@@ -14,7 +15,7 @@ interface tableProps {
 
 export const Table = ({ data, collumns }: tableProps) => {
   return (
-    <table className="mt-10  w-full text-left">
+    <table className="mt-10  w-full text-left overflow-auto min-w-[500px]">
       <thead>
         <tr>
           {collumns.map((item, index) => (
@@ -30,7 +31,8 @@ export const Table = ({ data, collumns }: tableProps) => {
           <tr key={'TableLine' + index} className="border border-b border-slate-700">
             {collumns.map((collumnItem, index) => (
               <td
-                className="min-w-[200px] border-solid border-slate-700 p-3 last:min-w-fit last:border last:text-center"
+                className={`border-solid border-slate-700 p-3 last:border last:text-center
+                ${collumnItem.width ? `min-w-[${collumnItem.width}px]` : ''}`}
                 key={item[collumnItem.value] + index}>
                 {item[collumnItem.value]}
               </td>
