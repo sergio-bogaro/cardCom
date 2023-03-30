@@ -15,7 +15,7 @@ const SideBar = () => {
   return (
     <main>
       <div
-        className={`top-0 h-full min-w-[300px] overflow-auto bg-gray-200 duration-300 ease-in-out
+        className={`top-0 h-full w-[250px] fixed overflow-auto bg-gray-200 duration-300 ease-in-out
         scrollbar-thin scrollbar-track-inherit scrollbar-thumb-slate-700 dark:bg-slate-800 shadow-2xl
         ${isOpen ? 'translate-x-0 lg:relative' : 'fixed -translate-x-full'}`}>
         <div className="flex flex-col items-center gap-2 ">
