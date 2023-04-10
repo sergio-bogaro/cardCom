@@ -1,4 +1,5 @@
-import { ReactNode } from 'react';
+import { ReactNode, useEffect, useState } from 'react';
+import { GoArrowUp } from 'react-icons/go';
 
 interface collumnProps {
   heading: string;
@@ -13,14 +14,34 @@ interface tableProps {
   }>;
 }
 
+type Order = 'asc' | 'desc';
+
 export const Table = ({ data, collumns }: tableProps) => {
+  const [order, setOrder] = useState<Order>('asc');
+  const [orderBy, setOrderBy] = useState('');
+
+  function handleSorteOrder(row: string) {
+    const isAsc = order === 'asc';
+    const newOrderRow = orderBy != row;
+
+    setOrderBy(row);
+    setOrder(newOrderRow ? 'asc' : isAsc ? 'desc' : 'asc');
+  }
+
+  useEffect(() => {
+    console.log(order, orderBy)
+  }, [order, orderBy]);
+
   return (
     <table className="mt-10  w-full text-left overflow-auto min-w-[500px]">
       <thead>
         <tr>
           {collumns.map((item, index) => (
-            <th className="p-3 text-xl font-bold" key={item.heading + index}>
-              {item.heading}
+            <th className="p-3 text-xl font-bold hover:cursor-pointer" onClick={() => handleSorteOrder(item.value)} key={item.heading + index}>
+              <div className='flex gap-3'>
+                {item.heading}
+                <GoArrowUp className={`transition-all ${orderBy === item.value ? "block" : "hidden"} ${order === "asc" ? "rotate-0" : "rotate-180"}`} />
+              </div>
             </th>
           ))}
         </tr>
