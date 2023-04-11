@@ -171,6 +171,12 @@ const ListClients: NextPage = () => {
   useEffect(() => {
     setNewSearch(false);
     setLoadingData(true);
+
+    if (!transactionClient) {
+      setLoadingData(false);
+      return
+    }
+
     const page = (currentPage - 1).toString();
     searchClient(searchFilter, page)
       .then((res: any) => {
@@ -186,7 +192,7 @@ const ListClients: NextPage = () => {
         setLoadingData(false);
       })
       .catch((err: any) => console.log(err));
-  }, [newSearch === true]);
+  }, [newSearch === true, transactionClient]);
 
   return (
     <div>

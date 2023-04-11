@@ -29,7 +29,8 @@ export const Table = ({ data, collumns }: tableProps) => {
   }
 
   useEffect(() => {
-    console.log(order, orderBy)
+    const orderFilter = `${order === "asc" ? "" : "-"}${orderBy} `
+    console.log(orderFilter)
   }, [order, orderBy]);
 
   return (
