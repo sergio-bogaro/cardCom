@@ -4,6 +4,7 @@ import { GoBell, GoPerson } from 'react-icons/go';
 
 import * as Popover from '@radix-ui/react-popover';
 import { ButtonOrLink } from '@ui/ButtonOrLink';
+import { Title } from '@ui/Title';
 
 import { UserContext } from '../../contexts/auth';
 import styles from '../../styles/radixPopover.module.css';
@@ -11,7 +12,7 @@ import { ThemeSwitcher } from './ThemeSwitcher';
 
 const Header = () => {
   const router = useRouter();
-  const { userData, setUserData } = useContext(UserContext);
+  const { userData, setUserData, currentPageName } = useContext(UserContext);
 
   const logout = () => {
     localStorage.removeItem('accessTokenCAP');
@@ -20,7 +21,11 @@ const Header = () => {
     router.push('/login');
   };
   return (
-    <div className="h-16 mb-4 flex p-4 justify-end gap-3 items-center bg-gray-500 dark:bg-slate-850 shadow-lg dark:shadow-slate-900">
+    <div className="h-16 mb-4 p-4 flex items-center gap-3 justify-end bg-gray-500 dark:bg-slate-850 shadow-lg dark:shadow-slate-900">
+      <div className='mr-auto'>
+        <Title titleText={currentPageName} />
+      </div>
+
       <ThemeSwitcher />
 
       <Popover.Root>
@@ -67,6 +72,7 @@ const Header = () => {
           </Popover.Content>
         </Popover.Portal>
       </Popover.Root>
+
     </div>
   );
 };

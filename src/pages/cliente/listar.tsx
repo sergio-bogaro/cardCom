@@ -52,7 +52,7 @@ const ListClients: NextPage = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [searchFilter, setSearchFilter] = useState('');
 
-  const { transactionClient } = useContext(UserContext);
+  const { transactionClient, setCurrentPageName } = useContext(UserContext);
 
   const searchClient = (filter: string, page: string) => {
     const searchProps = `search=${filter}&page=${page}`;
@@ -167,6 +167,10 @@ const ListClients: NextPage = () => {
       </Popover.Root>
     );
   }
+
+  useEffect(() => {
+    setCurrentPageName("Listar Clientes")
+  })
 
   useEffect(() => {
     setNewSearch(false);

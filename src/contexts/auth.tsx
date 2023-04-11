@@ -15,6 +15,8 @@ interface userProviderProps {
 
 interface userType {
   userData: typeof userDataType;
+  currentPageName: string;
+  setCurrentPageName: any;
   setUserData: any;
   transactionClient: any;
 }
@@ -22,8 +24,8 @@ interface userType {
 export const UserContext = createContext({} as userType);
 
 export function UserProvider({ children }: userProviderProps) {
-  const baseURL = 'https://api-capp.worktabsystems.com.br/api';
   const [userData, setUserData] = useState<typeof userDataType>(userDataType);
+  const [currentPageName, setCurrentPageName] = useState("")
 
   useEffect(() => {
     const data = localStorage.getItem('userDataCAP');
@@ -34,6 +36,7 @@ export function UserProvider({ children }: userProviderProps) {
     } else router.push('/login');
   }, []);
 
+  const baseURL = 'https://api-capp.worktabsystems.com.br/api';
   const transactionClient = axios.create({
     baseURL: baseURL,
     // timeout: 5000,
@@ -45,5 +48,5 @@ export function UserProvider({ children }: userProviderProps) {
     }
   });
 
-  return <UserContext.Provider value={{ userData, setUserData, transactionClient }}>{children}</UserContext.Provider>;
+  return <UserContext.Provider value={{ userData, setUserData, transactionClient, currentPageName, setCurrentPageName }}>{children}</UserContext.Provider>;
 }
