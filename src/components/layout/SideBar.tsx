@@ -5,12 +5,13 @@ import { GoThreeBars, GoX } from 'react-icons/go';
 import { MdHomeFilled } from 'react-icons/md';
 
 import { ButtonOrLink } from '@ui/ButtonOrLink';
-import { DropDownButton } from '@ui/DropDownButton';
+import { CollapseButton } from '@ui/CollapseButton';
 
 import logoImage from '../../../public/logo.png';
 
 const SideBar = () => {
   const [isOpen, setIsOpen] = useState(true);
+  const [collapsableOpen, setCollapsableOpen] = useState("")
 
   return (
     <main>
@@ -36,7 +37,7 @@ const SideBar = () => {
             </ButtonOrLink>
           </div>
 
-          <DropDownButton icon="temple" title="Administração">
+          <CollapseButton isOpen={collapsableOpen} setIsOpen={setCollapsableOpen} icon="temple" title="Administração">
             <ButtonOrLink intent={'transparent'} fullWidth href="/administracao/cadastros">
               • Cadastros
             </ButtonOrLink>
@@ -48,21 +49,9 @@ const SideBar = () => {
             <ButtonOrLink intent={'transparent'} fullWidth href="/administracao/niveis">
               • Níveis
             </ButtonOrLink>
-          </DropDownButton>
+          </CollapseButton>
 
-          <DropDownButton title="Auto Atendimento">
-            <ButtonOrLink intent={'transparent'} fullWidth href="/cliente/listar">
-              • Fazer Pedido
-            </ButtonOrLink>
-          </DropDownButton>
-
-          <DropDownButton icon="people" title="Clientes e Pedidos">
-            <ButtonOrLink intent={'transparent'} fullWidth href="/cliente/listar">
-              • Zerar Saldo
-            </ButtonOrLink>
-          </DropDownButton>
-
-          <DropDownButton icon="person" title="Clientes">
+          <CollapseButton isOpen={collapsableOpen} setIsOpen={setCollapsableOpen} icon="person" title="Clientes e Modelos">
             <ButtonOrLink intent={'transparent'} fullWidth href="/cliente/listar">
               • Listar Clientes
             </ButtonOrLink>
@@ -70,9 +59,7 @@ const SideBar = () => {
             <ButtonOrLink intent={'transparent'} fullWidth href="/cliente/saldo">
               • Saldo dos Clientes
             </ButtonOrLink>
-          </DropDownButton>
 
-          <DropDownButton icon="person" title="Modelos">
             <ButtonOrLink intent={'transparent'} fullWidth href="/modelos/listar">
               • Listar Modelos
             </ButtonOrLink>
@@ -80,15 +67,15 @@ const SideBar = () => {
             <ButtonOrLink intent={'transparent'} fullWidth href="/modelos/saldo">
               • Saldo dos Modelos
             </ButtonOrLink>
-          </DropDownButton>
+          </CollapseButton>
 
-          <DropDownButton icon="money" title="Comercial">
+          <CollapseButton isOpen={collapsableOpen} setIsOpen={setCollapsableOpen} icon="money" title="Comercial">
             <ButtonOrLink intent={'transparent'} fullWidth href="/comercial/vendas">
               • Vendas
             </ButtonOrLink>
-          </DropDownButton>
+          </CollapseButton>
 
-          <DropDownButton icon="cart" title="Pedidos">
+          <CollapseButton isOpen={collapsableOpen} setIsOpen={setCollapsableOpen} icon="cart" title="Pedidos">
             <ButtonOrLink intent={'transparent'} fullWidth href="/pedidos/criar-pedido">
               • Fazer Pedido
             </ButtonOrLink>
@@ -116,9 +103,9 @@ const SideBar = () => {
             <ButtonOrLink intent={'transparent'} fullWidth href="/pedidos/grade-producao">
               • Grade de Producao
             </ButtonOrLink>
-          </DropDownButton>
+          </CollapseButton>
 
-          <DropDownButton icon="table" title="Expedição">
+          <CollapseButton isOpen={collapsableOpen} setIsOpen={setCollapsableOpen} icon="table" title="Expedição">
             <ButtonOrLink intent={'transparent'} fullWidth href="/expedicao/entregas">
               • Entregas
             </ButtonOrLink>
@@ -130,9 +117,9 @@ const SideBar = () => {
             <ButtonOrLink intent={'transparent'} fullWidth href="/expedicao/expedir">
               • Expedir
             </ButtonOrLink>
-          </DropDownButton>
+          </CollapseButton>
 
-          <DropDownButton icon="box" title="Estoque e Produtos">
+          <CollapseButton isOpen={collapsableOpen} setIsOpen={setCollapsableOpen} icon="box" title="Estoque e Produtos">
             <ButtonOrLink intent={'transparent'} fullWidth href="/estoque/meu-estoque">
               • Meu Estoque
             </ButtonOrLink>
@@ -160,9 +147,9 @@ const SideBar = () => {
             <ButtonOrLink intent={'transparent'} fullWidth href="/estoque/produtos">
               • Produtos
             </ButtonOrLink>
-          </DropDownButton>
+          </CollapseButton>
 
-          <DropDownButton icon="money" title="Financeiro">
+          <CollapseButton isOpen={collapsableOpen} setIsOpen={setCollapsableOpen} icon="money" title="Financeiro">
             <ButtonOrLink intent={'transparent'} fullWidth href="/financeiro/vendas-pendentes">
               • Vendas Pendentes
             </ButtonOrLink>
@@ -178,19 +165,19 @@ const SideBar = () => {
             <ButtonOrLink intent={'transparent'} fullWidth href="/financeiro/contas">
               • Contas
             </ButtonOrLink>
-          </DropDownButton>
+          </CollapseButton>
 
-          <DropDownButton title="Relatórios">
+          <CollapseButton isOpen={collapsableOpen} setIsOpen={setCollapsableOpen} icon="report" title="Relatórios">
             <ButtonOrLink intent={'transparent'} fullWidth href="/home/produtos">
               • Produção
             </ButtonOrLink>
-          </DropDownButton>
+          </CollapseButton>
 
-          <DropDownButton icon="tool" title="Ferramentas">
+          <CollapseButton isOpen={collapsableOpen} setIsOpen={setCollapsableOpen} icon="tool" title="Ferramentas">
             <ButtonOrLink intent={'transparent'} fullWidth href="/home/produtos">
               • WhatsApp
             </ButtonOrLink>
-          </DropDownButton>
+          </CollapseButton>
         </div>
       </div>
 
