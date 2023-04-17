@@ -5,6 +5,7 @@ interface collumnProps {
   heading: string;
   value: string;
   width?: number;
+  sortable?: boolean;
 }
 
 interface tableProps {
@@ -38,8 +39,8 @@ export const Table = ({ data, collumns }: tableProps) => {
       <thead>
         <tr>
           {collumns.map((item, index) => (
-            <th className="p-3 text-xl font-bold hover:cursor-pointer" onClick={() => handleSorteOrder(item.value)} key={item.heading + index}>
-              <div className='flex gap-3'>
+            <th className={`p-3 text-xl font-bold ${item.sortable ? "hover:cursor-pointer" : ''}`} onClick={() => item.sortable ? handleSorteOrder(item.value) : null} key={item.heading + index}>
+              <div className='flex gap-3 items-center'>
                 {item.heading}
                 <GoArrowUp className={`transition-all ${orderBy === item.value ? "block" : "hidden"} ${order === "asc" ? "rotate-0" : "rotate-180"}`} />
               </div>
