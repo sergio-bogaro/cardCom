@@ -52,8 +52,8 @@ const Header = () => {
                   <GoPerson size={40} color={'gray'} />
                 </div>
                 <div className="mb-2">
-                  <p>{userData.nome}</p>
-                  <p>{userData.email}</p>
+                  <p>{userData?.nome}</p>
+                  <p>{userData?.email}</p>
                 </div>
               </div>
               <Popover.Close asChild>

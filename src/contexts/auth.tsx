@@ -2,7 +2,7 @@ import axios from 'axios';
 import router from 'next/router';
 import { createContext, ReactNode, useEffect, useState } from 'react';
 
-const userDataType = {
+interface userDataType {
   token_access: '',
   nome: '',
   email: '',
@@ -14,7 +14,7 @@ interface userProviderProps {
 }
 
 interface userType {
-  userData: typeof userDataType;
+  userData: userDataType | undefined;
   currentPageName: string;
   setCurrentPageName: any;
   setUserData: any;
@@ -24,7 +24,7 @@ interface userType {
 export const UserContext = createContext({} as userType);
 
 export function UserProvider({ children }: userProviderProps) {
-  const [userData, setUserData] = useState<typeof userDataType>(userDataType);
+  const [userData, setUserData] = useState<userDataType>();
   const [currentPageName, setCurrentPageName] = useState("")
 
   useEffect(() => {
@@ -43,7 +43,7 @@ export function UserProvider({ children }: userProviderProps) {
     headers: {
       // 'X-Requested-With': 'XMLHttpRequest',
       // 'Content-type': 'application/json',
-      Authorization: 'Bearer ' + userData.token_access,
+      Authorization: 'Bearer ' + userData?.token_access,
       Accept: 'application/json'
     }
   });

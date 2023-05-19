@@ -16,8 +16,8 @@ const Home: NextPage = () => {
     <div className="rounded-lg bg-gray-500 dark:bg-slate-850 p-6">
       <div className="flex flex-row">
         <div className="w-3/4">
-          <p>Ola {userData.nome}</p>
-          <p>Seu ID: {userData.id}</p>
+          <p>Ola {userData?.nome}</p>
+          <p>Seu ID: {userData?.id}</p>
           <h2 className="mt-6">Visão Geral</h2>
           <span>Ultimo Mes</span>
         </div>
