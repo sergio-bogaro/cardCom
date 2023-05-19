@@ -21,8 +21,8 @@ const Header = () => {
     router.push('/login');
   };
   return (
-    <div className="h-16 mb-4 p-4 flex items-center gap-3 justify-end bg-gray-500 dark:bg-slate-850 shadow-lg dark:shadow-slate-900">
-      <div className='mr-auto ml-8'>
+    <div className="h-16 mb-4 p-4 flex items-center gap-3 justify-end ">
+      <div className='mr-10'>
         <Title titleText={currentPageName} />
       </div>
 
