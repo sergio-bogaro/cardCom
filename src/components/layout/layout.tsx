@@ -1,7 +1,7 @@
 import router from 'next/router';
 import { ReactNode, useContext, useEffect } from 'react';
 
-import { Nunito } from '@next/font/google';
+import { Nunito } from 'next/font/google';
 
 import { UserContext } from '../../contexts/auth';
 import Header from './Header';

@@ -22,7 +22,7 @@ const Header = () => {
   };
   return (
     <div className="h-16 mb-4 p-4 flex items-center gap-3 justify-end bg-gray-500 dark:bg-slate-850 shadow-lg dark:shadow-slate-900">
-      <div className='mr-auto'>
+      <div className='mr-auto ml-8'>
         <Title titleText={currentPageName} />
       </div>
 
